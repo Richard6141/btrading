@@ -18,8 +18,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('firstname');
             $table->string('civility');
-            $table->integer('phone');
-            $table->string('status');
+            $table->string('phone');
+            $table->uuid('status_id')->nullable();
+            $table->foreign('status_id')->nullable()->references('id')->on('statuses');
             $table->string('email')->unique();
             $table->boolean('account_status')->default(1);
             $table->string('password');
