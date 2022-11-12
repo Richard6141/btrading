@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -16,34 +18,64 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    public function login(Request $request)
+    public function connection(Request $request)
     {
-        $user = validate($request, [
-            'username' => 'required',
-            'password' => 'required',
-        ]);
 
+        $request->validate([
+            'username' => 'required',
+            'password' => 'required | min:8',
+        ]);
+        $username = \htmlspecialchars(\trim($request->username));
+        if (Auth::check()) {
+            return redirect()->intended('accueil');
+        }
+        if( !User::where('email', $request->username)->exists() && !User::where('phone', $request->username)->exists()){
+            return back()->with([
+            'error' => "Username ou email incorrect !",
+        ]);
+        
+        }
+        if(filter_var($request->username, FILTER_VALIDATE_EMAIL)){
+            $user =  User::where('email', $request->username)->firstOrFail();
+        }else{
+            $user = User::where('phone', $request->username)->firstOrFail();
+        }
+
+        if($user->account_status == false){
+            return back();
+        }
         if (Auth::attempt([
             'phone' => $request['username'],
             'password' => $request['password']
-            ],$request->has('remember'))
+            ])
             || Auth::attempt([
             'email' => $request['username'],
             'password' => $request['password']
-            ],$request->has('remember'))){
-            if($request->remember == true){
+            ])){
+                
+            if($request->has('remember')){
                 Auth::login($user, $remember = true);
-                return redirect()->intended('modern');
+                return redirect()->intended('accueil');
             }else{
-                Auth::login($user);
-                return redirect()->intended('modern');
+                $request->session()->regenerate();
+                return redirect()->intended('accueil');
             }
-            return back()->withErrors([
-                'error' => 'Username ou mot de passe incorrect.',
-            ]);
+                
+                
         }
-        return false;
+        return back()->with([
+            'error' => "Username ou email incorrect !",
+        ]);
+    }
 
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/accueil');
     }
 
     

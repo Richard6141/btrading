@@ -21,6 +21,15 @@
               <li class="nav-item">
                 <a class="{{ request()->is('contact') ? 'active' : '' }} nav-link" href="{{route('contact')}}">Contact Us</a>
               </li>
+              @if( !Auth::user())
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('login')}}"><i class="fa-duotone fa-user-secret"></i>Se connecter</a>
+              </li>
+              @else
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('logout')}}"><i class="fa-duotone fa-user-secret"></i>Se déconnecter</a>
+              </li>
+              @endif
               <!-- <li class="nav-item">
                 <a class="nav-link" href="one-page.html">One Page</a>
               </li> -->
@@ -29,3 +38,6 @@
         </div>
       </nav>
     </header>
+    <script>
+    <script src="https://kit.fontawesome.com/9525013788.js" crossorigin="anonymous"></script>
+    </script>

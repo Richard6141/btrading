@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bootstrap 5 - Login Form</title>
+  <title>Login</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" />
 </head>
 
@@ -43,11 +43,11 @@ input:focus, button:focus {
             <h2 class="p-3">Login</h2>
           </div>
           <div class="card-body">
-            <form method="POST" action="{{ route('login') }}">
+            <form method="POST" action="{{ route('connection') }}">
                 @csrf
               <div class="mb-4">
                 <label for="username" class="form-label">Phone/Email</label>
-                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                 <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" autofocus>
                 @error('email')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -56,11 +56,18 @@ input:focus, button:focus {
               </div>
               <div class="mb-4">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" />
+                <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password" />
               </div>
+                @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
               <div class="mb-4">
-                <input type="checkbox" name="remember" class="form-check-input" id="remember" />
-                <label for="remember" class="form-label">Remember Me</label>
+                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                <label class="form-check-label" for="remember">
+                    {{ __('Remember Me') }}
+                </label>
               </div>
               <div class="d-grid">
                 <button type="submit" class="btn text-light main-bg">Login</button>

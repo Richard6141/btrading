@@ -22,7 +22,7 @@ return new class extends Migration
             $table->uuid('status_id')->nullable();
             $table->foreign('status_id')->nullable()->references('id')->on('statuses');
             $table->string('email')->unique();
-            $table->boolean('account_status')->default(1);
+            $table->boolean('account_status')->default(true);
             $table->string('password');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
