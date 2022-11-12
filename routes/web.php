@@ -1,9 +1,13 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\RegisterController as ControllersRegisterController;
+use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\ServiceController;
 
 /*
@@ -27,3 +31,5 @@ Route::get('/Accuiel', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::get('/services', [ServiceController::class, 'index'])->name('services');
+Route::get('/register', [RegistrationController::class, 'registerRender'])->name('register.view');
+Route::post('/register', [RegistrationController::class, 'registerSubmit'])->name('register.submit');
