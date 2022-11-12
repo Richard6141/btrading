@@ -16,39 +16,35 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    /**
-     * Handle account login request
-     * 
-     * @param LoginRequest $request
-     * 
-     * @return \Illuminate\Http\Response
-     */
-    public function login(LoginRequest $request)
+    public function login(Request $request)
     {
-        $credentials = $request->getCredentials();
+        $user = validate($request, [
+            'username' => 'required',
+            'password' => 'required',
+        ]);
 
-        if(!Auth::validate($credentials)):
-            return redirect()->to('login')
-                ->withErrors(trans('auth.failed'));
-        endif;
+        if (Auth::attempt([
+            'phone' => $request['username'],
+            'password' => $request['password']
+            ],$request->has('remember'))
+            || Auth::attempt([
+            'email' => $request['username'],
+            'password' => $request['password']
+            ],$request->has('remember'))){
+            if($request->remember == true){
+                Auth::login($user, $remember = true);
+                return redirect()->intended('modern');
+            }else{
+                Auth::login($user);
+                return redirect()->intended('modern');
+            }
+            return back()->withErrors([
+                'error' => 'Username ou mot de passe incorrect.',
+            ]);
+        }
+        return false;
 
-        $user = Auth::getProvider()->retrieveByCredentials($credentials);
-
-        Auth::login($user);
-
-        return $this->authenticated($request, $user);
     }
 
-    /**
-     * Handle response after user authenticated
-     * 
-     * @param Request $request
-     * @param Auth $user
-     * 
-     * @return \Illuminate\Http\Response
-     */
-    protected function authenticated(Request $request, $user) 
-    {
-        return redirect()->intended();
-    }
+    
 }
