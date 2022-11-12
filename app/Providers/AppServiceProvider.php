@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -11,10 +12,6 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
-    {
-        //
-    }
 
     /**
      * Bootstrap any application services.
