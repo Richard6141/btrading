@@ -102,12 +102,12 @@ class RegistrationController extends Controller
         try {
             if (Auth::check()) {
                 $user = Auth::user();
-                $user['name'] = $request->name;
-                $user['firstname'] = $request->firstname;
-                $user['civility'] = $request->civility;
-                $user['country'] = $request->country;
-                $user['phone'] = $request->phone;
-                $user['email'] = $request->email;
+                $user->name = $request->name;
+                $user->firstname = $request->firstname;
+                $user->civility = $request->civility;
+                $user->country = $request->country;
+                $user->phone = $request->phone;
+                $user->email = $request->email;
 
             }
         } catch (\Throwable $th) {
