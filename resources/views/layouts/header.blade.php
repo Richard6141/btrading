@@ -23,11 +23,11 @@
               </li>
               @if( !Auth::user())
               <li class="nav-item">
-                <a class="nav-link" href="{{route('login')}}"><i class="fa-duotone fa-user-secret"></i>Se connecter</a>
+                <a class="nav-link filled-button" href="{{route('login')}}"><i class="fa-duotone fa-user-secret"></i>Se connecter</a>
               </li>
               @else
               <li class="nav-item">
-                <a class="nav-link" href="{{route('logout')}}"><i class="fa-duotone fa-user-secret"></i>Se déconnecter</a>
+                <a class="nav-link filled-button" href="{{route('logout')}}"><i class="fa-duotone fa-user-secret"></i>Se déconnecter</a>
               </li>
               @endif
               <!-- <li class="nav-item">
