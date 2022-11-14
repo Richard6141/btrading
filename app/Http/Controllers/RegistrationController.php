@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use \Rinvex\Country;
 use App\Models\User;
 use App\Models\Status;
 use Illuminate\Http\Request;
@@ -10,14 +9,12 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Validator;
 
 class RegistrationController extends Controller
 {
     public function registerRender(): View
     {
         $countries = \Rinvex\Country\CountryLoader::countries();
-        // dd($countries);
         return view('register.index', [
             'countries' => $countries
         ]);
@@ -66,12 +63,15 @@ class RegistrationController extends Controller
         $userId = htmlspecialchars(trim($id));
         $checkUser = User::where('id', $userId)->exists();
         if (!$checkUser) {
-            return back()->with('error', 'User not found');
+            dd('error');
+            // return back()->with('error', 'User not found');
+        } else {
+            $userData = User::where('id', $userId)->first();
+        return view('users.profil', [
+            'user' => $userData,
+        ]);
         }
-
-        $userData = User::where('id', $userId)->first();
-        // dd($userData);
-        return view('users.profil');
+        
     }
 
     public function uploadAvatar(Request $request)
@@ -83,9 +83,9 @@ class RegistrationController extends Controller
             dd($filename);
             $user['image'] = $filename;
             $user->save();
-            return back()->with('success', " Photo de profil mise à jour avec succès ! ");
+            return back()->with('success', " Avatar updated successfully ! ");
         }
-        return back()->with('error', 'Mise à jour échouée !');
+        return back()->with('error', 'Failed to update avatar !');
     }
 
     public function editProfilSubmission(Request $request)
@@ -98,20 +98,47 @@ class RegistrationController extends Controller
             'phone' => 'required|integer',
             'email' => 'required|email|unique:users,email',
         ]);
+        if (Auth::check()) {
+            $user = Auth::user();
+            $user->name = $request->name;
+            $user->firstname = $request->firstname;
+            $user->civility = $request->civility;
+            $user->country = $request->country;
+            $user->phone = $request->phone;
+            $user->email = $request->email;
+            $user->save();
 
-        try {
-            if (Auth::check()) {
-                $user = Auth::user();
-                $user->name = $request->name;
-                $user->firstname = $request->firstname;
-                $user->civility = $request->civility;
-                $user->country = $request->country;
-                $user->phone = $request->phone;
-                $user->email = $request->email;
+            return back()->with('success', "Profil updated successfully");
+        }
+    }
 
+    public function manageRole(Request $request, string $id)
+    {
+        $checkSatusId = Status::where('id', htmlspecialchars(trim($request->status)))->exist();
+        $authUserRole = Auth::user()->status_id->get();
+        $adminId = Status::where('label', 'admin')->pluck('id');
+        $userId = htmlspecialchars(trim($id));
+
+        if ($authUserRole === $adminId) {
+            $userCheck = User::where('id', $userId)->exists();
+            if (!$checkSatusId) {
+                return back()->with('error', 'Status not found');
+            } else {
+                if (!$userCheck) {
+                    return back()->with('error', "User not found");
+                } else {
+                    $userData = User::where('id', $userId)->first();
+                    if ($userData->status_id == null) {
+                        $userData->status_id = strval($request->status);
+                        $userData->save();
+                    } else {
+                        $userData->status_id = null;
+                        $userData->save();
+                    }
+                }
             }
-        } catch (\Throwable $th) {
-            //throw $th;
+        } else {
+            return back()->with('error', "You aren't allowed to perfom this action");
         }
     }
 }
