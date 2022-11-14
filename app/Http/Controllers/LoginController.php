@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -16,39 +18,65 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    /**
-     * Handle account login request
-     * 
-     * @param LoginRequest $request
-     * 
-     * @return \Illuminate\Http\Response
-     */
-    public function login(LoginRequest $request)
+    public function connection(Request $request)
     {
-        $credentials = $request->getCredentials();
 
-        if(!Auth::validate($credentials)):
-            return redirect()->to('login')
-                ->withErrors(trans('auth.failed'));
-        endif;
+        $request->validate([
+            'username' => 'required',
+            'password' => 'required | min:8',
+        ]);
+        $username = \htmlspecialchars(\trim($request->username));
+        if (Auth::check()) {
+            return redirect()->intended('accueil');
+        }
+        if( !User::where('email', $request->username)->exists() && !User::where('phone', $request->username)->exists()){
+            return back()->with([
+            'error' => "Username ou email incorrect !",
+        ]);
+        
+        }
+        if(filter_var($request->username, FILTER_VALIDATE_EMAIL)){
+            $user =  User::where('email', $request->username)->firstOrFail();
+        }else{
+            $user = User::where('phone', $request->username)->firstOrFail();
+        }
 
-        $user = Auth::getProvider()->retrieveByCredentials($credentials);
-
-        Auth::login($user);
-
-        return $this->authenticated($request, $user);
+        if($user->account_status == false){
+            return back();
+        }
+        if (Auth::attempt([
+            'phone' => $request['username'],
+            'password' => $request['password']
+            ])
+            || Auth::attempt([
+            'email' => $request['username'],
+            'password' => $request['password']
+            ])){
+                
+            if($request->has('remember')){
+                Auth::login($user, $remember = true);
+                return redirect()->intended('accueil');
+            }else{
+                $request->session()->regenerate();
+                return redirect()->intended('accueil');
+            }
+                
+                
+        }
+        return back()->with([
+            'error' => "Username ou email incorrect !",
+        ]);
     }
 
-    /**
-     * Handle response after user authenticated
-     * 
-     * @param Request $request
-     * @param Auth $user
-     * 
-     * @return \Illuminate\Http\Response
-     */
-    protected function authenticated(Request $request, $user) 
+    public function logout(Request $request)
     {
-        return redirect()->intended();
+        Auth::logout();
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/accueil');
     }
+
+    
 }
