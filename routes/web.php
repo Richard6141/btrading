@@ -33,3 +33,5 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::get('/services', [ServiceController::class, 'index'])->name('services');
 Route::get('/register', [RegistrationController::class, 'registerRender'])->name('register.view');
 Route::post('/register', [RegistrationController::class, 'registerSubmit'])->name('register.submit');
+Route::get('/user/{id}', [RegistrationController::class, 'profilRender'])->name('profil.view');
+Route::post('/user/{id}/avatar', [RegistrationController::class, 'uploadAvatar'])->name('avatar.submit');
