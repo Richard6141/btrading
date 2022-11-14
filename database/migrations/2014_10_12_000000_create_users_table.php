@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('civility');
             $table->string('phone');
             $table->string('country');
+            $table->string('image')->nullable();
             $table->uuid('status_id')->nullable();
             $table->foreign('status_id')->nullable()->references('id')->on('statuses');
             $table->string('email')->unique();

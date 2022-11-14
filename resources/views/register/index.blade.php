@@ -55,16 +55,17 @@
                                 <label for="inputPhone" class="col-sm-2 col-form-label">Phone</label>
                                 <div class="col-sm-10">
                                     <div class="d-flex">
-                                        <select name="country_code"  class="form-control" style="width: 80px;">
-                                        <option value="">Choose your country</option>
+                                        <select name="country_code" id="select_country" class="form-control" style="width: 80px;">
+                                            <option value="">Choose your country</option>
                                             @foreach($countries as $country)
                                             @if (old('country_code') == $country['name'])
-                                            <option value="{{$country['name']}}" selected>{{$country['emoji']}}  {{$country['name']}}</option>
+                                            <option value="{{$country['name']}}" selected>{{$country['emoji']}} {{$country['name']}}</option>
                                             @else
-                                            <option value="{{$country['name']}}">{{$country['emoji']}}  {{$country['name']}}</option>
+                                            <option value="{{$country['name']}}">{{$country['emoji']}} {{$country['name']}}</option>
                                             @endif
                                             @endforeach
                                         </select>
+
                                         <input type="telephone" name="phone" class="form-control" id="inputPhone" value="{{ old('phone') }}" placeholder="Phone">
                                     </div>
                                     @error('phone')
@@ -122,21 +123,22 @@
                                         {{ $message }}
                                     </div>
                                     @enderror
+                                    <div class="d-flex justify-content-between mt-5">
+                                        <div>
+                                            <p><a href="#" style="color: #a4c639!important"> Login Now !</a></p>
+                                        </div>
+                                        <div class="wthree-text">
+                                            <label class="anim">
+                                                <input type="checkbox" class="checkbox" required="">
+                                                <span>I Agree To The Terms & Conditions</span>
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="d-flex justify-content-end">
-                                <div class="wthree-text">
-                                    <label class="anim">
-                                        <input type="checkbox" class="checkbox" required="">
-                                        <span>I Agree To The Terms & Conditions</span>
-                                    </label>
-                                </div>
-                            </div>
+
                             <div class="d-flex justify-content-end">
                                 <button type="submit" class="btn" style="background-color: #a4c639!important; color:white">Register</button>
-                            </div>
-                            <div class="d-flex justify-content-end">
-                                <p>Don't have an Account? <a href="#"> Login Now!</a></p>
                             </div>
                         </form>
                     </div>
@@ -144,13 +146,14 @@
             </div>
         </div>
     </div>
+</div>
+</div>
+</div>
 
-</div>
-</div>
-</div>
 <!-- Banner Ends Here -->
 
 @endsection
 @section('scripts')
 
+@include('register.js')
 @endsection
