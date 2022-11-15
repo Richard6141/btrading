@@ -37,5 +37,5 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout')->middl
 
 Route::get('/register', [RegistrationController::class, 'registerRender'])->name('register.view');
 Route::post('/register', [RegistrationController::class, 'registerSubmit'])->name('register.submit');
-Route::get('/user/{id}', [RegistrationController::class, 'profilRender'])->name('profil.view');
+Route::get('/users/{id}', [RegistrationController::class, 'profilRender'])->name('register.view');
 Route::post('/user/{id}/avatar', [RegistrationController::class, 'uploadAvatar'])->name('avatar.submit');

@@ -13,14 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('type_services', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('label');
-            $table->text('description');
-            $table->text('advantages');
-            $table->text('terms');
-            $table->uuid('type_service_id');
-            $table->foreign('type_service_id')->references('id')->on('type_services');
+            $table->string('created_by')->nullable();
             $table->timestamps();
         });
     }
@@ -32,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('services');
+        Schema::dropIfExists('type_services');
     }
 };
