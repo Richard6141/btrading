@@ -6,7 +6,7 @@
     <div class="container">
         <div class="d-flex flex-column align-items-center text-center p-3 py-5">
             @if ($user->image != null)
-            <img src="https://imgs.search.brave.com/wOFEEZVolBmkkL_5HDtNKokpZkCCwOMQWYo-Dlm-DVs/rs:fit:474:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5X/LXlITURHT2VDbnVI/aU1WUElPT3p3SGFI/YSZwaWQ9QXBp" class="rounded mx-auto d-block" alt="...">
+            <img src="{{ asset('image/'.Auth::user()->image) }}" class="rounded mx-auto d-block" alt="...">
             @else
             <img src="{{ 'https://ui-avatars.com/api/?background=8EC741&color=ffff/?uppercase=true&name=' . Auth::user()->name. '+' . Auth::user()->firstname}}" class="rounded mx-auto d-block" alt="...">
             @endif

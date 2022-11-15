@@ -62,6 +62,7 @@ class RegistrationController extends Controller
     {
         $userId = htmlspecialchars(trim($id));
         $checkUser = User::where('id', $userId)->exists();
+        // dd($checkUser)
         if (!$checkUser) {
             dd('error');
             // return back()->with('error', 'User not found');
