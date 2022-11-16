@@ -1,309 +1,365 @@
-@extends('layouts.app')
-
+@extends('layouts.app')  
 @section('content')
-
-<div class="main-banner header-text" id="top">
-  <div class="Modern-Slider">
-    <!-- Item -->
-    <div class="item item-1">
-      <div class="img-fill">
-        <div class="text-content">
-          <h6>we are ready to help you</h6>
-          <h4>Financial Analysis<br>&amp; Consulting</h4>
-          <p>This finance HTML template is 100% free of charge provided by TemplateMo for everyone. This is a multiple-page version with different HTML pages. <a href="one-page.html">One-page version</a> is available as of 2021 February.</p>
-          <a href="contact.html" class="filled-button">contact us</a>
+<header class="slider-main">
+    <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+        <ol class="carousel-indicators">
+           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+           <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+           <!-- Slide One - Set the background image for this slide in the line below -->
+           <div class="carousel-item active" style="background-image: url('images/slider-01.jpg')">
+              <div class="carousel-caption d-none d-md-block">
+                 <h3>Welcome to Zonebiz</h3>
+                 <p>A Great Theme For Business Consulting</p>
+              </div>
+           </div>
+           <!-- Slide Two - Set the background image for this slide in the line below -->
+           <div class="carousel-item" style="background-image: url('images/slider-02.jpg')">
+              <div class="carousel-caption d-none d-md-block">
+                 <h3>Best Consulting Services.</h3>
+                 <p>A Great Theme For Business Consulting</p>
+              </div>
+           </div>
+           <!-- Slide Three - Set the background image for this slide in the line below -->
+           <div class="carousel-item" style="background-image: url('images/slider-03.jpg')">
+              <div class="carousel-caption d-none d-md-block">
+                 <h3>Welcome to Zonebiz</h3>
+                 <p>A Great Theme For Business Consulting</p>
+              </div>
+           </div>
         </div>
-      </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
-    <!-- // Item -->
-    <!-- Item -->
-    <div class="item item-2">
-      <div class="img-fill">
-        <div class="text-content">
-          <h6>we are here to support you</h6>
-          <h4>Accounting<br>&amp; Management</h4>
-          <p>You are allowed to use this template for your company websites. You are NOT allowed to re-distribute this template ZIP file on any template download website. Please contact TemplateMo for more detail.</p>
-          <a href="services.html" class="filled-button">our services</a>
-        </div>
-      </div>
-    </div>
-    <!-- // Item -->
-    <!-- Item -->
-    <div class="item item-3">
-      <div class="img-fill">
-        <div class="text-content">
-          <h6>we have a solid background</h6>
-          <h4>Market Analysis<br>&amp; Statistics</h4>
-          <p>You can download, edit and use this layout for your business website. Phasellus lacinia ac sapien vitae dapibus. Mauris ut dapibus velit cras interdum nisl ac urna tempor mollis.</p>
-          <a href="about.html" class="filled-button">learn more</a>
-        </div>
-      </div>
-    </div>
-    <!-- // Item -->
-  </div>
-</div>
-<!-- Banner Ends Here -->
-
-<div class="request-form">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8">
-        <h4>Request a call back right now ?</h4>
-        <span>Mauris ut dapibus velit cras interdum nisl ac urna tempor mollis.</span>
-      </div>
-      <div class="col-md-4">
-        <a href="contact.html" class="border-button">Contact Us</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="services">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="section-heading">
-          <h2>Financial <em>Services</em></h2>
-          <span>Aliquam id urna imperdiet libero mollis hendrerit</span>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="service-item">
-          <img src="{{ asset('assets/images/service_01.jpg')}}" alt="">
-          <div class="down-content">
-            <h4>Digital Currency</h4>
-            <p>Sed tincidunt dictum lobortis. Aenean tempus diam vel augue luctus dignissim. Nunc ornare leo tortor.</p>
-            <a href="" class="filled-button">Read More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="service-item">
-          <img src="{{ asset('assets/images/service_02.jpg')}}" alt="">
-          <div class="down-content">
-            <h4>Market Analysis</h4>
-            <p>Sed tincidunt dictum lobortis. Aenean tempus diam vel augue luctus dignissim. Nunc ornare leo tortor.</p>
-            <a href="" class="filled-button">Read More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="service-item">
-          <img src="{{ asset('assets/images/service_03.jpg')}}" alt="">
-          <div class="down-content">
-            <h4>Historical Data</h4>
-            <p>Sed tincidunt dictum lobortis. Aenean tempus diam vel augue luctus dignissim. Nunc ornare leo tortor.</p>
-            <a href="" class="filled-button">Read More</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="fun-facts">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <div class="left-content">
-          <span>Lorem ipsum dolor sit amet</span>
-          <h2>Our solutions for your <em>business growth</em></h2>
-          <p>Pellentesque ultrices at turpis in vestibulum. Aenean pretium elit nec congue elementum. Nulla luctus laoreet porta. Maecenas at nisi tempus, porta metus vitae, faucibus augue.
-            <br><br>Fusce et venenatis ex. Quisque varius, velit quis dictum sagittis, odio velit molestie nunc, ut posuere ante tortor ut neque.
-          </p>
-          <a href="" class="filled-button">Read More</a>
-        </div>
-      </div>
-      <div class="col-md-6 align-self-center">
+</header>
+<div class="container">        
+    <!-- About Section -->
+    <div class="about-main">
         <div class="row">
-          <div class="col-md-6">
-            <div class="count-area-content">
-              <div class="count-digit">945</div>
-              <div class="count-title">Work Hours</div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="count-area-content">
-              <div class="count-digit">1280</div>
-              <div class="count-title">Great Reviews</div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="count-area-content">
-              <div class="count-digit">578</div>
-              <div class="count-title">Projects Done</div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="count-area-content">
-              <div class="count-digit">26</div>
-              <div class="count-title">Awards Won</div>
-            </div>
-          </div>
+           <div class="col-lg-6">
+              <h2>Welcome to Zonebiz</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
+              <h5>Our smart approach</h5>
+              <ul>
+                 <li>Sed at tellus eu quam posuere mattis.</li>
+                 <li>Phasellus quis erat et enim laoreet posuere ac porttitor ipsum.</li>
+                 <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>                     
+              </ul>
+           </div>
+           <div class="col-lg-6">
+              <img class="img-fluid rounded" src="images/about-img.jpg" alt="" />
+           </div>
         </div>
-      </div>
+        <!-- /.row -->
     </div>
-  </div>
+</div>	
+
+<div class="services-bar">
+    <div class="container">
+        <h1 class="py-4">Our Best Services </h1>
+        <!-- Services Section -->
+        <div class="row">
+           <div class="col-lg-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-img">
+                        <img class="img-fluid" src="images/services-img-01.jpg" alt="" />
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-header"> Analytics </h4>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+                    </div>
+                </div>
+           </div>
+           <div class="col-lg-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-img">
+                        <img class="img-fluid" src="images/services-img-02.jpg" alt="" />
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-header"> Applications </h4>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+                    </div>
+                </div>
+           </div>
+           <div class="col-lg-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-img">
+                        <img class="img-fluid" src="images/services-img-03.jpg" alt="" />
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-header"> Business Process </h4>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+                    </div>
+                </div>
+           </div>
+           <div class="col-lg-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-img">
+                        <img class="img-fluid" src="images/services-img-04.jpg" alt="" />
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-header"> Consulting </h4>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+                    </div>						
+                </div>
+           </div>
+           <div class="col-lg-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-img">
+                        <img class="img-fluid" src="images/services-img-05.jpg" alt="" />
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-header"> Infrastructure </h4>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+                    </div>						
+                </div>
+           </div>
+           <div class="col-lg-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-img">
+                        <img class="img-fluid" src="images/services-img-06.jpg" alt="" />
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-header"> Product Engineering </h4>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+                    </div>
+                </div>
+           </div>
+        </div>
+        <!-- /.row -->
+    </div>
+</div>
+    
+<div class="container">
+    <!-- Portfolio Section -->
+    <div class="portfolio-main">
+        <h2>Our Portfolio</h2>
+        <div class="col-lg-12">
+            <div class="project-menu text-center">
+                <button class="btn btn-primary active" data-filter="*">All</button>
+                <button data-filter=".business" class="btn btn-primary">Business</button>
+                <button data-filter=".travel" class="btn btn-primary">Travel</button>
+                <button data-filter=".financial" class="btn btn-primary">Financial</button>
+                <button data-filter=".academic" class="btn btn-primary">Academic</button>
+            </div>
+        </div>
+        <div id="projects" class="projects-main row">
+           <div class="col-lg-4 col-sm-6 pro-item portfolio-item financial">
+              <div class="card h-100">
+                 <div class="card-img">
+                    <a href="images/portfolio-img-01.jpg" data-fancybox="images">
+                       <img class="card-img-top" src="images/portfolio-img-01.jpg" alt="" />
+                       <div class="overlay"><i class="fas fa-arrows-alt"></i></div>
+                    </a>
+                 </div>
+                 <div class="card-body">
+                    <h4 class="card-title">
+                       <a href="#">Financial Sustainability</a>
+                    </h4>
+                 </div>
+              </div>
+           </div>
+           <div class="col-lg-4 col-sm-6 pro-item portfolio-item business academic">
+              <div class="card h-100">
+                 <div class="card-img">
+                    <a href="images/portfolio-img-02.jpg" data-fancybox="images">
+                       <img class="card-img-top" src="images/portfolio-img-02.jpg" alt="" />
+                       <div class="overlay"><i class="fas fa-arrows-alt"></i></div>
+                    </a>
+                 </div>
+                 <div class="card-body">
+                    <h4 class="card-title">
+                       <a href="#">Financial Sustainability</a>
+                    </h4>
+                 </div>
+              </div>
+           </div>
+           <div class="col-lg-4 col-sm-6 pro-item portfolio-item travel">
+              <div class="card h-100">
+                 <div class="card-img">
+                    <a href="images/portfolio-img-03.jpg" data-fancybox="images">
+                       <img class="card-img-top" src="images/portfolio-img-03.jpg" alt="" />
+                       <div class="overlay"><i class="fas fa-arrows-alt"></i></div>
+                    </a>
+                 </div>
+                 <div class="card-body">
+                    <h4 class="card-title">
+                       <a href="#">Financial Sustainability</a>
+                    </h4>
+                 </div>
+              </div>
+           </div>
+           <div class="col-lg-4 col-sm-6 pro-item portfolio-item business">
+              <div class="card h-100">
+                 <div class="card-img">
+                    <a href="images/portfolio-img-04.jpg" data-fancybox="images">
+                       <img class="card-img-top" src="images/portfolio-img-04.jpg" alt="" />
+                       <div class="overlay"><i class="fas fa-arrows-alt"></i></div>
+                    </a>
+                 </div>
+                 <div class="card-body">
+                    <h4 class="card-title">
+                       <a href="#">Financial Sustainability</a>
+                    </h4>
+                 </div>
+              </div>
+           </div>
+           <div class="col-lg-4 col-sm-6 pro-item portfolio-item travel">
+              <div class="card h-100">
+                 <div class="card-img">
+                    <a href="images/portfolio-img-05.jpg" data-fancybox="images">
+                       <img class="card-img-top" src="images/portfolio-img-05.jpg" alt="" />
+                       <div class="overlay"><i class="fas fa-arrows-alt"></i></div>
+                    </a>
+                 </div>
+                 <div class="card-body">
+                    <h4 class="card-title">
+                       <a href="#">Financial Sustainability</a>
+                    </h4>
+                 </div>
+              </div>
+           </div>
+           <div class="col-lg-4 col-sm-6 pro-item portfolio-item financial academic">
+              <div class="card h-100">
+                 <div class="card-img">
+                    <a href="images/portfolio-img-01.jpg" data-fancybox="images">
+                       <img class="card-img-top" src="images/portfolio-img-01.jpg" alt="" />
+                       <div class="overlay"><i class="fas fa-arrows-alt"></i></div>
+                    </a>
+                 </div>
+                 <div class="card-body">
+                    <h4 class="card-title">
+                       <a href="#">Financial Sustainability</a>
+                    </h4>
+                 </div>
+              </div>
+           </div>
+        </div>
+        <!-- /.row -->
+    </div>
 </div>
 
-<div class="more-info">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="more-info-content">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="left-image">
-                <img src="{{ asset('assets/images/more-info.jpg')}}" alt="">
-              </div>
+<div class="blog-slide">
+    <div class="container">
+        <h2>Our Blog</h2>
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="blog-slider" class="owl-carousel">
+                    <div class="post-slide">
+                        <div class="post-header">
+                            <h4 class="title">
+                                <a href="#">Latest blog Post</a>
+                            </h4>
+                            <ul class="post-bar">
+                                <li><img src="images/testi_01.png" alt=""><a href="#">Williamson</a></li>
+                                <li><i class="fa fa-calendar"></i>02 June 2018</li>
+                            </ul>
+                        </div>
+                        <div class="pic">
+                            <img src="images/img-1.jpg" alt="">
+                            <ul class="post-category">
+                                <li><a href="#">Business</a></li>
+                                <li><a href="#">Financ</a></li>
+                            </ul>
+                        </div>
+                        <p class="post-description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida nulla eu massa efficitur, eu hendrerit ipsum efficitur. Morbi vitae velit ac.
+                        </p>
+                    </div>
+     
+                    <div class="post-slide">
+                        <div class="post-header">
+                            <h4 class="title">
+                                <a href="#">Latest blog Post</a>
+                            </h4>
+                            <ul class="post-bar">
+                                <li><img src="images/testi_02.png" alt=""><a href="#">Kristiana</a></li>
+                                <li><i class="fa fa-calendar"></i>05 June 2018</li>
+                            </ul>
+                        </div>
+                        <div class="pic">
+                            <img src="images/img-2.jpg" alt="">
+                            <ul class="post-category">
+                                <li><a href="#">Business</a></li>
+                                <li><a href="#">Financ</a></li>
+                            </ul>
+                        </div>
+                        <p class="post-description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida nulla eu massa efficitur, eu hendrerit ipsum efficitur. Morbi vitae velit ac.
+                        </p>
+                    </div>
+                    
+                    <div class="post-slide">
+                        <div class="post-header">
+                            <h4 class="title">
+                                <a href="#">Latest blog Post</a>
+                            </h4>
+                            <ul class="post-bar">
+                                <li><img src="images/testi_01.png" alt=""><a href="#">Kristiana</a></li>
+                                <li><i class="fa fa-calendar"></i>05 June 2018</li>
+                            </ul>
+                        </div>
+                        <div class="pic">
+                            <img src="images/img-3.jpg" alt="">
+                            <ul class="post-category">
+                                <li><a href="#">Business</a></li>
+                                <li><a href="#">Financ</a></li>
+                            </ul>
+                        </div>
+                        <p class="post-description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida nulla eu massa efficitur, eu hendrerit ipsum efficitur. Morbi vitae velit ac.
+                        </p>
+                    </div>
+                    
+                    <div class="post-slide">
+                        <div class="post-header">
+                            <h4 class="title">
+                                <a href="#">Latest blog Post</a>
+                            </h4>
+                            <ul class="post-bar">
+                                <li><img src="images/testi_02.png" alt=""><a href="#">Kristiana</a></li>
+                                <li><i class="fa fa-calendar"></i>05 June 2018</li>
+                            </ul>
+                        </div>
+                        <div class="pic">
+                            <img src="images/img-4.jpg" alt="">
+                            <ul class="post-category">
+                                <li><a href="#">Business</a></li>
+                                <li><a href="#">Financ</a></li>
+                            </ul>
+                        </div>
+                        <p class="post-description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida nulla eu massa efficitur, eu hendrerit ipsum efficitur. Morbi vitae velit ac.
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-6 align-self-center">
-              <div class="right-content">
-                <span>Who we are</span>
-                <h2>Get to know about <em>our company</em></h2>
-                <p>Curabitur pulvinar sem a leo tempus facilisis. Sed non sagittis neque. Nulla conse quat tellus nibh, id molestie felis sagittis ut. Nam ullamcorper tempus ipsum in cursus<br><br>Praes end at dictum metus. Morbi id hendrerit lectus, nec dapibus ex. Etiam ipsum quam, luctus eu egestas eget, tincidunt</p>
-                <a href="#" class="filled-button">Read More</a>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 
-<div class="testimonials">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="section-heading">
-          <h2>What they say <em>about us</em></h2>
-          <span>testimonials from our greatest clients</span>
+
+<!-- Contact Us -->
+<div class="touch-line">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
+            </div>
+            <div class="col-md-4">
+               <a class="btn btn-lg btn-secondary btn-block" href="#"> Contact Us </a>
+            </div>
         </div>
-      </div>
-      <div class="col-md-12">
-        <div class="owl-testimonials owl-carousel">
-
-          <div class="testimonial-item">
-            <div class="inner-content">
-              <h4>George Walker</h4>
-              <span>Chief Financial Analyst</span>
-              <p>"Nulla ullamcorper, ipsum vel condimentum congue, mi odio vehicula tellus, sit amet malesuada justo sem sit amet quam. Pellentesque in sagittis lacus."</p>
-            </div>
-            <img src="http://placehold.it/60x60" alt="">
-          </div>
-
-          <div class="testimonial-item">
-            <div class="inner-content">
-              <h4>John Smith</h4>
-              <span>Market Specialist</span>
-              <p>"In eget leo ante. Sed nibh leo, laoreet accumsan euismod quis, scelerisque a nunc. Mauris accumsan, arcu id ornare malesuada, est nulla luctus nisi."</p>
-            </div>
-            <img src="http://placehold.it/60x60" alt="">
-          </div>
-
-          <div class="testimonial-item">
-            <div class="inner-content">
-              <h4>David Wood</h4>
-              <span>Chief Accountant</span>
-              <p>"Ut ultricies maximus turpis, in sollicitudin ligula posuere vel. Donec finibus maximus neque, vitae egestas quam imperdiet nec. Proin nec mauris eu tortor consectetur tristique."</p>
-            </div>
-            <img src="http://placehold.it/60x60" alt="">
-          </div>
-
-          <div class="testimonial-item">
-            <div class="inner-content">
-              <h4>Andrew Boom</h4>
-              <span>Marketing Head</span>
-              <p>"Curabitur sollicitudin, tortor at suscipit volutpat, nisi arcu aliquet dui, vitae semper sem turpis quis libero. Quisque vulputate lacinia nisl ac lobortis."</p>
-            </div>
-            <img src="http://placehold.it/60x60" alt="">
-          </div>
-
-        </div>
-      </div>
     </div>
-  </div>
 </div>
-
-<div class="callback-form">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="section-heading">
-          <h2>Request a <em>call back</em></h2>
-          <span>Etiam suscipit ante a odio consequat</span>
-        </div>
-      </div>
-      <div class="col-md-12">
-        <div class="contact-form">
-          <form id="contact" action="" method="post">
-            <div class="row">
-              <div class="col-lg-4 col-md-12 col-sm-12">
-                <fieldset>
-                  <input name="name" type="text" class="form-control" id="name" placeholder="Full Name" required="">
-                </fieldset>
-              </div>
-              <div class="col-lg-4 col-md-12 col-sm-12">
-                <fieldset>
-                  <input name="email" type="text" class="form-control" id="email" pattern="[^ @]*@[^ @]*" placeholder="E-Mail Address" required="">
-                </fieldset>
-              </div>
-              <div class="col-lg-4 col-md-12 col-sm-12">
-                <fieldset>
-                  <input name="subject" type="text" class="form-control" id="subject" placeholder="Subject" required="">
-                </fieldset>
-              </div>
-              <div class="col-lg-12">
-                <fieldset>
-                  <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your Message" required=""></textarea>
-                </fieldset>
-              </div>
-              <div class="col-lg-12">
-                <fieldset>
-                  <button type="submit" id="form-submit" class="border-button">Send Message</button>
-                </fieldset>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="partners">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="owl-partners owl-carousel">
-
-          <div class="partner-item">
-            <img src="{{ asset('assets/images/client-01.png')}}" title="1" alt="1">
-          </div>
-
-          <div class="partner-item">
-            <img src="{{ asset('assets/images/client-01.png')}}" title="2" alt="2">
-          </div>
-
-          <div class="partner-item">
-            <img src="{{ asset('assets/images/client-01.png')}}" title="3" alt="3">
-          </div>
-
-          <div class="partner-item">
-            <img src="{{ asset('assets/images/client-01.png')}}" title="4" alt="4">
-          </div>
-
-          <div class="partner-item">
-            <img src="{{ asset('assets/images/client-01.png')}}" title="5" alt="5">
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-@endsection
-@section('scripts')
 
 @endsection

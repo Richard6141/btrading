@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\TypeService;
 use Illuminate\Http\Request;
+use Mockery\Matcher\Type;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $typeServices = TypeService::all();
+        // dd($typeServices);
+        return view('home', [
+            'typeServices' => $typeServices,
+        ]);
     }
 }

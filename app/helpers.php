@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\TypeService;
+
 function upload($request)
 {
     $file = $request->file('image');

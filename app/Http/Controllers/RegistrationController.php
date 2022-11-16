@@ -61,7 +61,7 @@ class RegistrationController extends Controller
     public function profilRender($id)
     {
         // $user = User::where('id', $id)->first();
-        
+
         return view('users.profil', [
             'user' => $id
         ]);
