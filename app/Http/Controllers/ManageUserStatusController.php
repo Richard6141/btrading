@@ -27,10 +27,12 @@ class ManageUserStatusController extends Controller
             if($user instanceof User)
             {
                 if($user->account_status == true){
-                    $user->update(['account_status'=>false]);
+                    $user->account_status=false;
+                    $user->save();
                     return back()->with('success','Compte modifié avec succès !');
                 }
-                $user->update(['account_status'=>true]);
+                $user->account_status=true;
+                $user->save();
                 return back()->with('success','Compte modifié avec succès !');
             }
             abort(422);
