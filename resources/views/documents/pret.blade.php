@@ -189,17 +189,17 @@ page[size="A5"][layout="landscape"] {
                 <p class="paragrah">
                 </p>
                 <div>
-                    <p><span class="target1">Immobilier</span>
+                    <p class="target1">Immobilier
                     </p>
-                    <p> <span class="target1">5000000</span>
+                    <p class="target1"> 5000000
                     </p>
-                    <p><span class="target1">50 mois</span>
+                    <p class="target1">50 mois
                     </p>
-                    <p><span class="target1">510 €</span>
+                    <p class="target1">510 €
                     </p>
-                    <p><span class="target1">05/10/2023</span>
+                    <p class="target1">05/10/2023
                     </p>
-                    <p><span class="target1">3%</span>
+                    <p class="target1">3%
                     </p>
                 </div>
             </div>
