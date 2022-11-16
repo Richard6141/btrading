@@ -7,6 +7,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ManageUserStatusController;
@@ -44,3 +45,4 @@ Route::get('/users/{id}', [RegistrationController::class, 'profilRender'])->name
 Route::post('/users/{id}/avatar', [RegistrationController::class, 'uploadAvatar'])->name('avatar.submit');
 Route::get('/users/{id}', [RegistrationController::class, 'profilRender'])->name('register.view');
 Route::post('/user/{id}/avatar', [RegistrationController::class, 'uploadAvatar'])->name('avatar.submit');
+Route::get('document-pret', [DocumentController::class, 'loanview'])->name('loanview');
