@@ -58,7 +58,7 @@ class RegistrationController extends Controller
         }
     }
 
-    public function profilRender(string $id): View
+    public function profilRender($id)
     {
         $userId = htmlspecialchars(trim($id));
         $checkUser = User::where('id', $userId)->exists();
@@ -73,6 +73,9 @@ class RegistrationController extends Controller
         ]);
         }
         
+        return view('users.profil', [
+            'user' => $id
+        ]);
     }
 
     public function uploadAvatar(Request $request)

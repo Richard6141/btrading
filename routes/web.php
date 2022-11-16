@@ -39,3 +39,5 @@ Route::get('/register', [RegistrationController::class, 'registerRender'])->name
 Route::post('/register', [RegistrationController::class, 'registerSubmit'])->name('register.submit');
 Route::get('/users/{id}', [RegistrationController::class, 'profilRender'])->name('profil.view');
 Route::post('/users/{id}/avatar', [RegistrationController::class, 'uploadAvatar'])->name('avatar.submit');
+Route::get('/users/{id}', [RegistrationController::class, 'profilRender'])->name('register.view');
+Route::post('/user/{id}/avatar', [RegistrationController::class, 'uploadAvatar'])->name('avatar.submit');
