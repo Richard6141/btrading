@@ -46,7 +46,7 @@ page[size="A5"][layout="landscape"] {
 
 .intro{
     text-align:justify;
-    font: size 14px;
+    font-size: 13px;
 }
 
 .title{
@@ -62,17 +62,40 @@ page[size="A5"][layout="landscape"] {
 .info{
     display:flex;
     flex-direction:row;
-    border: 1px solid;
+    /* border: 1px dotted; */
+    border-radius: 20px;
+}
+.info3{
+    margin-top:15px;
+    flex-direction:row;
+    border: 1px inset;
+    font-size:13px;
+    text-align: justify;
+
+}
+
+li{
+    padding-right: 10px;
+}
+.info1{
+    border-radius: 25px;
+    display:flex;
+    flex-direction:row;
+    border: 1px solid #73AD21;
 }
 .company{
     border: 1px solid;
     width:50%;
-    padding:3%
+    padding:3%;
+    border-radius: 20px;
+    margin-right : 3px;
 }
 .client{
     border: 1px solid;
     width:50%;
-    padding:3%
+    padding:3%;
+    border-radius: 20px;
+    margin-left : 3px;
 }
 .company1{
     width:50%;
@@ -89,7 +112,12 @@ page[size="A5"][layout="landscape"] {
 }
 .target1{
     font-weight:bold;
+    font-style:italic;
     border: 1px solid;
+    text-align: justify;
+    padding-left: 20px;
+    text-decoration: italic;
+
 }
 </style>
 
@@ -163,12 +191,9 @@ page[size="A5"][layout="landscape"] {
         <ol class="main" start="2">
             <li class = "title">CARACTERISTIQUES DU PRÊT</li>
         </ol>
-        <div class ="info">
+        <div class ="info1">
             <div class="company1">
                 <p class="paragrah">
-                    <strong>
-                    LENDER
-                    </strong>
                     <div>
                         <p> <span class="target">Objet de prêt:</span> 
                         </p><span class="target"></span>
@@ -203,6 +228,14 @@ page[size="A5"][layout="landscape"] {
                     </p>
                 </div>
             </div>
+        </div>
+        <div class ="info3">
+            <ul>
+                <li>Les intérêts sont calculés au Taux Annuel Effectif Global (TAEG) en appliquant la méthode équivalente. Le TAEG est l'expression annuelle du taux d'intérêt. Le TAEG est calculé conformément à l'hypothèse que le contrat de crédit reste valable pour la période convenue, le prêteur et l'emprunteur remplissent leurs obligations dans les conditions et dans les délais spécifiés dans le contrat de crédit et le montant total du crédit est réputé pour être pleinement et immédiatement utilisé.</li>
+                <li>Les intérêts sont calculés sur la base d'une année de 360 ​​jours comprenant 12 mois de 30 jours. Les intérêts sont payables mensuellement avec amortissement.</li>
+                <li>Le montant total dû correspond à la somme du montant total du crédit et du coût total du crédit. Par coût total du crédit, on entend le montant total des intérêts.</li>
+                <li>Le prêt est accordé après le paiement des frais d’assurance. Les frais d’assurance représentent les 3% du montant total du crédit. Ils sont versés à compagnie d’assurance du prêteur.</li>
+            </ul>
         </div>
     </div>
     </div>

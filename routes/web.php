@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\TypeService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -25,12 +26,17 @@ use App\Http\Controllers\RegisterController as ControllersRegisterController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $typeServices = TypeService::all();
+    return view('welcome', [
+        'typeServices' => $typeServices
+    ]);
 });
 
-Auth::routes();
+// Auth::routes();
+
 
 Route::get('/accueil', [HomeController::class, 'index'])->name('home');
+Route::get('/login', [LoginController::class, 'show'])->name('login');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::get('/services', [ServiceController::class, 'index'])->name('services');
@@ -41,8 +47,7 @@ Route::get('/register', [RegistrationController::class, 'registerRender'])->name
 Route::get('/userlist', [ManageUserStatusController::class, 'userlistRender'])->name('userlist.view');
 Route::get('/manageStatus/{user}', [ManageUserStatusController::class, 'switchUserStatus'])->name('switchUserStatus');
 Route::post('/register', [RegistrationController::class, 'registerSubmit'])->name('register.submit');
-Route::get('/users/{id}', [RegistrationController::class, 'profilRender'])->name('profil.view');
-Route::post('/users/{id}/avatar', [RegistrationController::class, 'uploadAvatar'])->name('avatar.submit');
-Route::get('/users/{id}', [RegistrationController::class, 'profilRender'])->name('register.view');
+Route::get('/users/{id}', [RegistrationController::class, 'profilRender'])->name('users.profil');
 Route::post('/user/{id}/avatar', [RegistrationController::class, 'uploadAvatar'])->name('avatar.submit');
 Route::get('document-pret', [DocumentController::class, 'loanview'])->name('loanview');
+Route::get('/type_services/{id}', [ServiceController::class, 'serviceByType'])->name('services.type');
