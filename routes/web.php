@@ -44,3 +44,7 @@ Route::post('/register', [RegistrationController::class, 'registerSubmit'])->nam
 Route::get('/users/{id}', [RegistrationController::class, 'profilRender'])->name('users.profil');
 Route::post('/user/{id}/avatar', [RegistrationController::class, 'uploadAvatar'])->name('avatar.submit');
 Route::get('/type_services/{id}', [ServiceController::class, 'serviceByType'])->name('services.type');
+Route::get('/new_type_services', [ServiceController::class, 'newTypeServiceView'])->name('add.typeservice');
+Route::get('/new_services', [ServiceController::class, 'newServiceView'])->name('add.service');
+Route::post('/new_type_services', [ServiceController::class, 'newTypeService'])->name('submit.typeservice');
+Route::post('/new_services', [ServiceController::class, 'newService'])->name('submit.service');

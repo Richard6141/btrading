@@ -124,6 +124,7 @@
                                 </div>
                             </div>
                         </div>
+                        </div>
                     </div>
                     <div class="d-flex justify-content-end">
                         <button type="submit" class="btn" style="background-color: #1273eb!important; color:white">Register</button>

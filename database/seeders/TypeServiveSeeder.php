@@ -16,11 +16,12 @@ class TypeServiveSeeder extends Seeder
      */
     public function run()
     {
-        $typeServices = ['Prêt', 'Investissement', 'Epargne'];
+        $typeServices = ['Loan', 'Investment', 'Saving'];
         foreach ($typeServices as $typeService) {
             $typeService = TypeService::create([
                 'id' => Str::uuid(),
                 'label' => $typeService,
+                'description' => fake()->text(200)
             ]);
         }
     }

@@ -73,7 +73,7 @@ class RegistrationController extends Controller
             /** @var User */
             $user = Auth::user();
             $filename = upload(strval($request->file('image')));
-            dd($filename);
+            // dd($filename);
             $user['image'] = $filename;
             $user->save();
             return back()->with('success', " Avatar updated successfully ! ");
