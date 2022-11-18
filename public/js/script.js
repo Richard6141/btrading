@@ -3,7 +3,7 @@
 	"use strict";
 	
 		// Mouse pointer
-		$(".wrapper-main").prepend("<div class='mouse-pointer'></div>");
+		// $(".wrapper-main").prepend("<div class='mouse-pointer'></div>");
 
 		function showCoords(event) {
 			var x = event.pageX;

@@ -51,3 +51,4 @@ Route::get('/users/{id}', [RegistrationController::class, 'profilRender'])->name
 Route::post('/user/{id}/avatar', [RegistrationController::class, 'uploadAvatar'])->name('avatar.submit');
 Route::get('document-pret', [DocumentController::class, 'loanview'])->name('loanview');
 Route::get('/type_services/{id}', [ServiceController::class, 'serviceByType'])->name('services.type');
+Route::get('/documents/loan', [DocumentController::class, 'loadloan'])->name('documents.loan');

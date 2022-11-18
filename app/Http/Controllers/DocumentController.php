@@ -2,20 +2,43 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
+use App\Models\User;
+use App\Models\Document;
 use App\Http\Requests\StoreDocumentRequest;
 use App\Http\Requests\UpdateDocumentRequest;
-use App\Models\Document;
+
 
 class DocumentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function loanview()
+    { 
+        $users = User::all();
+        $pdf = PDF::loadView ('documents.pret', ['users'=>$users]);
+
+        // $pdf->setPaper('L');
+        // $pdf->output();
+        // $canvas = $pdf->getDomPDF()->getCanvas();
+
+        // $height = $canvas->get_height();
+        // $width = $canvas->get_width();
+
+        // // $canvas->set_opacity(.2);
+
+        // $canvas->set_opacity(.2);
+
+        // $canvas->page_text($width/5, $height/2, 'Nicesnippets.com', null,
+        // 55, array(0,0,0),2,2,-30);
+
+        return $pdf->stream();
+    }
+
+    public function loadloan()
     {
-        return view ('documents.pret');
+        // dd('ok');
+        $pdf = PDF::loadView('documents.pret');
+        return $pdf->stream();
     }
 
     /**
