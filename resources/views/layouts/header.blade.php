@@ -34,7 +34,33 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home
+                      <span class="sr-only">(current)</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class=" {{ request()->is('about') ? 'active' : '' }} nav-link" href="{{route('about')}}">About Us</a>
+                  </li>  
+                  <li class="nav-item">
+                    <a class="{{ request()->is('services') ? 'active' : '' }} nav-link" href="{{route('services')}}">Our Services</a>
+                  </li>                          
+                  <li class="nav-item">
+                    <a class="{{ request()->is('contact') ? 'active' : '' }} nav-link" href="{{route('contact')}}">Contact Us</a>
+                  </li>
+                  @if( !Auth::user())
+                  <li class="nav-item">
+                    <a class="nav-link filled-button" href="{{route('login')}}"><i class="fa-duotone fa-user-secret"></i>Se connecter</a>
+                  </li>
+                  @else
+                  <li class="nav-item">
+                    <a class="nav-link filled-button" href="{{route('logout')}}"><i class="fa-duotone fa-user-secret"></i>Se déconnecter</a>
+                  </li>
+                  @endif
+                  <!-- <li class="nav-item">
+                    <a class="nav-link" href="one-page.html">One Page</a>
+                  </li> -->
+                {{-- <li class="nav-item">
                     <a class="nav-link active" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
@@ -68,7 +94,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="contact.html">Contact</a>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </div>

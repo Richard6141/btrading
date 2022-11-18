@@ -114,7 +114,7 @@
                             @enderror
                             <div class="d-flex justify-content-between mt-5">
                                 <div>
-                                    <p><a href="#" style="color: #1273eb!important"> Login Now !</a></p>
+                                    <p><a href="{{route('login')}}" style="color: #1273eb!important"> Login Now !</a></p>
                                 </div>
                                 <div class="wthree-text">
                                     <label class="anim">
