@@ -27,7 +27,7 @@ class HomeController extends Controller
     {
         $typeServices = TypeService::all();
         // dd($typeServices);
-        return view('home', [
+        return view('welcome', [
             'typeServices' => $typeServices,
         ]);
     }

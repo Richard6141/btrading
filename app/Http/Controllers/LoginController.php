@@ -55,10 +55,10 @@ class LoginController extends Controller
                 
             if($request->has('remember')){
                 Auth::login($user, $remember = true);
-                return redirect()->intended('accueil');
+                return redirect()->intended('/');
             }else{
                 $request->session()->regenerate();
-                return redirect()->intended('accueil');
+                return redirect()->intended('/');
             }
                 
                 
