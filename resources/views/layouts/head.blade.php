@@ -14,4 +14,5 @@
 	<link href="{{asset('css/jquery.fancybox.min.css')}}" rel="stylesheet">
 	<!-- Custom styles for this template -->
 	<link href="{{asset('css/style.css')}}" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/9525013788.js" crossorigin="anonymous"></script>
 </head>
