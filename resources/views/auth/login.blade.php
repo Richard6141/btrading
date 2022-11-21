@@ -4,7 +4,7 @@
     <div class="col-12 d-flex justify-content-end" style="min-height:800px; background-image: url('images/slider-01.jpg')">
         <div class="card" style="width: 40rem;">
             <div class="card-body row align-items-center">
-                <form class="col align-self-center" action="{{ route('register.submit') }}" method="POST">
+                <form class="col align-self-center" action="{{ route('connection') }}" method="POST">
                     <h1 class="text-center mb-5" style="color: #1273eb">Login to your account now !</h1>
                     @csrf
                     <div class="form-group row">

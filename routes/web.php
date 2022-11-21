@@ -8,7 +8,11 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\ManageUserStatusController;
+use App\Http\Controllers\RegisterController as ControllersRegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,11 +44,15 @@ Route::post('/connect', [LoginController::class, 'connection'])->name('connectio
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
 
 Route::get('/register', [RegistrationController::class, 'registerRender'])->name('register.view');
+Route::get('/userlist', [ManageUserStatusController::class, 'userlistRender'])->name('userlist.view');
+Route::get('/manageStatus/{user}', [ManageUserStatusController::class, 'switchUserStatus'])->name('switchUserStatus');
 Route::post('/register', [RegistrationController::class, 'registerSubmit'])->name('register.submit');
 Route::get('/users/{id}', [RegistrationController::class, 'profilRender'])->name('users.profil');
 Route::post('/user/{id}/avatar', [RegistrationController::class, 'uploadAvatar'])->name('avatar.submit');
+Route::get('document-pret', [DocumentController::class, 'loanview'])->name('loanview');
 Route::get('/type_services/{id}', [ServiceController::class, 'serviceByType'])->name('services.type');
 Route::get('/new_type_services', [ServiceController::class, 'newTypeServiceView'])->name('add.typeservice');
 Route::get('/new_services', [ServiceController::class, 'newServiceView'])->name('add.service');
 Route::post('/new_type_services', [ServiceController::class, 'newTypeService'])->name('submit.typeservice');
 Route::post('/new_services', [ServiceController::class, 'newService'])->name('submit.service');
+Route::get('/documents/loan', [DocumentController::class, 'loadloan'])->name('documents.loan');
