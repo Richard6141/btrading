@@ -59,7 +59,7 @@ class ServiceController extends Controller
             $typeservice->description = $request->description;
             $typeservice->image = $filename;
             $typeservice->save();
-            dd('succes');
+            return redirect()->back()->with('success', "Type Service created successfully");
         } catch (\Throwable $th) {
             $message = "An error occurs ! Please contact the administrator";
             return redirect()->route('customer.index')->with('error', "$message");
