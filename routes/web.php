@@ -4,6 +4,7 @@ use App\Models\TypeService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoanController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ContactController;
@@ -56,3 +57,5 @@ Route::get('/new_services', [ServiceController::class, 'newServiceView'])->name(
 Route::post('/new_type_services', [ServiceController::class, 'newTypeService'])->name('submit.typeservice');
 Route::post('/new_services', [ServiceController::class, 'newService'])->name('submit.service');
 Route::get('/documents/loan', [DocumentController::class, 'loadloan'])->name('documents.loan');
+Route::get('loan', [LoanController::class, 'index'])->name('loan-form');
+Route::post('loan-register', [LoanController::class, 'loanRegister'])->name('loan.register');

@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('group');
             $table->string('period');
             $table->string('income');
-            $table->string('statut')->default(true);
+            $table->boolean('statut')->default(true);
             $table->timestamps();
         });
     }

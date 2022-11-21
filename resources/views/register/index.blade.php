@@ -146,7 +146,7 @@
                                     @endforeach
                                 </select>
         
-                                <input type="telephone" name="phone" class="form-control" id="inputPhone" value="{{ old('phone') }}" placeholder="Phone">
+                                <input type="tel" name="phone" class="form-control" id="inputPhone" value="{{ old('phone') }}" placeholder="Phone">
                             </div>
                             @error('phone')
                             <div>
