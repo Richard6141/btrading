@@ -111,19 +111,19 @@ li{
 
 }
 .company{
-    border: 1px solid;
+    border: 3px solid purple;
     width:42%;
     padding:3%;
     border-radius: 20px;
     /* margin-right : 3px; */
 }
 .client{
-    border: 1px solid;
+    border: 3px solid purple;
     width:42%;
     padding:3%;
     border-radius: 20px;
     float: right;
-    margin-top: -325px
+    margin-top: -328px
     /* margin-left : 3px; */
 }
 .company1{
@@ -210,31 +210,11 @@ td {
 tfoot th {
   text-align: right;
 }
-#watermark p {
-  position: fixed;
 
-  /** 
-      Set a position in the page for your image
-      This should center it vertically
-  **/
-  bottom:   10cm;
-  left:     5.5cm;
-
-  /** Change image dimensions**/
-  width:    8cm;
-  height:   8cm;
-
-  /** Your watermark should be behind every content**/
-  z-index:  -1000;
-  font-size:100px
-}
 </style>
 </head>
 <body>
-    <!-- <page size="A4"> -->
-      <div id="watermark">
-            <p>ORIGINAL</p>
-      </div>
+
     <div class="contener">
         <div class="intro">
         <p class="paragrah">
