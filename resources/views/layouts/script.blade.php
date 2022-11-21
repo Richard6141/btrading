@@ -13,3 +13,10 @@
 })
 
 </script>
+//   $("#button").on('click', function(e){
+//     e.preventDefault()
+//     console.log(e);
+//         $('#loader').show();
+//         $('#button').hide();
+// })
+</script>

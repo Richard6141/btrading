@@ -52,6 +52,10 @@ Route::get('/users/{id}', [RegistrationController::class, 'profilRender'])->name
 Route::post('/user/{id}/avatar', [RegistrationController::class, 'uploadAvatar'])->name('avatar.submit');
 Route::get('document-pret', [DocumentController::class, 'loanview'])->name('loanview');
 Route::get('/type_services/{id}', [ServiceController::class, 'serviceByType'])->name('services.type');
+Route::get('/type_services', [ServiceController::class, 'listeTypeServices'])->name('liste.typeservice');
+Route::get('/edit_typeservices/{id}', [ServiceController::class, 'editTypeService'])->name('edit.typeservice');
+Route::post('/edit_typeservices/{id}', [ServiceController::class, 'editTypeServiceSubmission'])->name('edittypeservice.submit');
+Route::get('/delete_typeservices/{id}', [ServiceController::class, 'deleteTypeService'])->name('delete.typeservice');
 Route::get('/new_type_services', [ServiceController::class, 'newTypeServiceView'])->name('add.typeservice');
 Route::get('/new_services', [ServiceController::class, 'newServiceView'])->name('add.service');
 Route::post('/new_type_services', [ServiceController::class, 'newTypeService'])->name('submit.typeservice');

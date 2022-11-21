@@ -14,15 +14,15 @@
 </div>
 <div class="services-bar">
     <div class="container">
-        <form class="col align-self-center" id="form" action="{{ route('submit.typeservice') }}" method="POST"
-            enctype="multipart/form-data">
-            <h1 class="text-center mb-5" style="color: #1273eb">Create new type service !</h1>
+        <form class="col align-self-center" id="form" action="{{ route('edittypeservice.submit', $typeService->id) }}"
+            method="POST" enctype="multipart/form-data">
+            <h1 class="text-center mb-5" style="color: #1273eb">Edit type service !</h1>
             @csrf
             <div class="form-group row mb-2">
                 <label for="inputlabel" class="col-sm-2 col-form-label">Name</label>
                 <div class="col-sm-10">
-                    <input type="text" name="label" class="form-control" id="inputlabel" value="{{ old('label') }}"
-                        placeholder="Name">
+                    <input type="text" name="label" class="form-control" id="inputlabel"
+                        value="{{ $typeService->label }}" placeholder="Name">
                     @error('label')
                     <div>
                         {{ $message }}
@@ -33,8 +33,8 @@
             <div class="form-group row mb-2">
                 <label for="inputimage" class="col-sm-2 col-form-label">Image</label>
                 <div class="col-sm-10">
-                    <input type="file" name="image" class="form-control" id="inputimage" value="{{ old('image') }}"
-                        placeholder="image">
+                    <input type="file" name="image" class="form-control" id="inputimage"
+                        value="{{ $typeService->image }}" placeholder="image">
                     @error('image')
                     <div>
                         {{ $message }}
@@ -46,7 +46,7 @@
                 <label for="inputdescription" class="col-sm-2 col-form-label">Description</label>
                 <div class="col-sm-10">
                     <textarea name="description" value="{{ old('description') }}" id="mytextarea"
-                        placeholder="Description"></textarea>
+                        placeholder="Description">{{$typeService->description}}</textarea>
                     @error('description')
                     <div>
                         {{ $message }}
@@ -59,7 +59,8 @@
                     style="background-color: #1273eb!important; color:white">Submit
                 </button>
                 <button class="btn btn-primary" id="loader" type="button" style="display: none" disabled>
-                    <span class="spinner-border spinner-border-sm" id="pageLoader" role="status" aria-hidden="true"></span>
+                    <span class="spinner-border spinner-border-sm" id="pageLoader" role="status"
+                        aria-hidden="true"></span>
                     Loading...
                 </button>
             </div>

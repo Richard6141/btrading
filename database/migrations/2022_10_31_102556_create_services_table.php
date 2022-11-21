@@ -21,7 +21,7 @@ return new class extends Migration
             $table->text('terms');
             $table->string('image')->nullable();
             $table->uuid('type_service_id');
-            $table->foreign('type_service_id')->references('id')->on('type_services');
+            $table->foreign('type_service_id')->references('id')->on('type_services')->onDelete('cascade');;
             $table->timestamps();
         });
     }
