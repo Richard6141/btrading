@@ -28,6 +28,69 @@ class ServiceController extends Controller
         ]);
     }
 
+    public function editTypeService(string $id)
+    {
+        $typeService = TypeService::where('id', $id)->first();
+        return view('services.edittypeservice', [
+            'typeService' => $typeService,
+        ]);
+    }
+
+    public function editTypeServiceSubmission(Request $request, string $id)
+    {
+        $request->validate([
+            'label' => 'required|string',
+            'description' => 'required|string',
+            'image' => 'required|mimes:png,jpg,jpeg',
+        ]);
+
+
+        $checkForTypeservice = TypeService::where('id', $id)->exists();
+        if (!$checkForTypeservice) {
+            return back()->with('error', 'Impossible to perform this action');
+        }
+        $file = $request->file('image');
+        $filename = now() . $file->getClientOriginalName();
+        $file->move(public_path('image'), $filename);
+
+        try {
+            $typeService = TypeService::where('id', $id)->first();
+            $typeService->label = $request->label;
+            $typeService->description = $request->description;
+            $typeService->image = $filename;
+            $typeService->updated_at = date('Y-m-d H:i:s');
+            $typeService->save();
+            return redirect()->route('liste.typeservice')->with('success', 'Type service updated successfully');
+        } catch (\Throwable $th) {
+            $message = "An error occurs ! Please contact the administrator";
+            return redirect()->route('liste.typeservice')->with('error', "$message");
+        }
+    }
+
+    public function deleteTypeService(string $id)
+    {
+        $checkForTypeservice = TypeService::where('id', $id)->exists();
+        if (!$checkForTypeservice) {
+            return back()->with('error', 'Impossible to perform this action');
+        }
+        try {
+            $typeService = TypeService::where('id', $id)->first();
+            $typeService->delete();
+            return redirect()->route('liste.typeservice')->with('success', 'Type service deleted successfully');
+        } catch (\Throwable $th) {
+            $message = "An error occurs ! Please contact the administrator";
+            return back()->with('error', "$message");
+        }
+    }
+
+    public function listeTypeServices()
+    {
+        $typeservices = TypeService::all();
+        return view('services.listetypeservice', [
+            'typeservices' => $typeservices
+        ]);
+    }
+
     public function newTypeServiceView()
     {
         return view('services.addtypeservice');
@@ -66,7 +129,8 @@ class ServiceController extends Controller
         }
     }
 
-    public function newService(Request $request) {
+    public function newService(Request $request)
+    {
         $request->validate([
             'label' => 'required|string',
             'description' => 'required|string',
@@ -75,8 +139,6 @@ class ServiceController extends Controller
             'type_service_id' => 'required|string',
             'image' => 'required|mimes:png,jpg,jpeg',
         ]);
-
-        // dd($request->all());
 
         $file = $request->file('image');
         $filename = now() . $file->getClientOriginalName();

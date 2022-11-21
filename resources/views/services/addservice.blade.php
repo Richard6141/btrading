@@ -18,7 +18,7 @@
             enctype="multipart/form-data">
             <h1 class="text-center mb-5" style="color: #1273eb">Create new service !</h1>
             @csrf
-            <div class="form-group row">
+            <div class="form-group row mb-2">
                 <label for="inputlabel" class="col-sm-2 col-form-label">Name</label>
                 <div class="col-sm-10">
                     <input type="text" name="label" class="form-control" id="inputlabel" value="{{ old('label') }}"
@@ -30,7 +30,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="form-group row">
+            <div class="form-group row mb-2">
                 <label for="type_service_id" class="col-sm-2 col-form-label">Service's type</label>
                 <div class="col-sm-10">
                     <select name="type_service_id" id="type_service_id" class="form-control">
@@ -50,7 +50,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="form-group row">
+            <div class="form-group row mb-2">
                 <label for="inputimage" class="col-sm-2 col-form-label">Image</label>
                 <div class="col-sm-10">
                     <input type="file" name="image" class="form-control" id="inputimage" value="{{ old('image') }}"
@@ -62,7 +62,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="form-group row mt-20">
+            <div class="form-group row mb-2">
                 <label for="inputdescription" class="col-sm-2 col-form-label">Description</label>
                 <div class="col-sm-10">
                     <textarea name="description" value="{{ old('description') }}" id="mytextarea"
@@ -74,7 +74,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="form-group row mt-20">
+            <div class="form-group row mb-2">
                 <label for="inputadvantages" class="col-sm-2 col-form-label">Advantages</label>
                 <div class="col-sm-10">
                     <textarea name="advantages" value="{{ old('advantages') }}" id="mytextarea"
@@ -86,7 +86,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="form-group row mt-20">
+            <div class="form-group row mb-2">
                 <label for="inputterms" class="col-sm-2 col-form-label">Terms</label>
                 <div class="col-sm-10">
                     <textarea name="terms" value="{{ old('terms') }}" id="mytextarea" placeholder="Terms"></textarea>

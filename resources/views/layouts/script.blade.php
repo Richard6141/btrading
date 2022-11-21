@@ -8,7 +8,10 @@
 <script src="{{asset('js/jquery.fancybox.min.js')}}"></script>
 <script src="{{asset('js/script.js')}}"></script>
 <script>
-    $('#myModal').on('shown.bs.modal', function () {
-  $('#myInput').trigger('focus')
-})
+//   $("#button").on('click', function(e){
+//     e.preventDefault()
+//     console.log(e);
+//         $('#loader').show();
+//         $('#button').hide();
+// })
 </script>
