@@ -48,7 +48,7 @@ class RegistrationController extends Controller
                 $user->email = $request->email;
                 $user->password = Hash::make(strval($request->password));
                 $user->save();
-                return redirect()->route('login')->with('error', "Account create successfully");
+                return redirect()->route('login')->with('success', "Account create successfully");
             } catch (\Throwable $th) {
                 $message = "An error occurs ! Please contact the administrator";
                 return redirect()->route('customer.index')->with('error', "$message");
@@ -73,7 +73,7 @@ class RegistrationController extends Controller
             /** @var User */
             $user = Auth::user();
             $filename = upload(strval($request->file('image')));
-            dd($filename);
+            // dd($filename);
             $user['image'] = $filename;
             $user->save();
             return back()->with('success', " Avatar updated successfully ! ");

@@ -75,12 +75,15 @@
             <div class="col-lg-4 mb-4">
                 <div class="card h-100">
                     <div class="card-img">
-                        <img class="img-fluid" src="images/services-img-01.jpg" alt="" />
+                        @if($typeService->image == null)
+                        <img class="img-fluid" src="{{asset('images/services-img-01.jpg')}}" alt="" />
+                        @else
+                        <img class="img-fluid" src="{{ asset('image/' . $typeService->image) }}" alt="" />
+                        @endif
                     </div>
                     <div class="card-body">
                         <h4 class="card-header"> {{$typeService->label}} </h4>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse
-                            necessitatibus neque.</p>
+                        <p class="card-text">{!!$typeService->description!!}</p>
                     </div>
                     <a href="{{route('services.type', $typeService->id)}}" class="btn btn-primary">More <i
                             class="fa-solid fa-arrow-right"></i></a>
