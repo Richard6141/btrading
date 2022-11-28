@@ -10,10 +10,10 @@
           </div> -->
           
           
-        {{-- <button class="btn btn-primary" type="button" disabled>
+       <!-- <button class="btn btn-primary" type="button" disabled>
             <span class="spinner-border spinner-border-sm" id="pageLoader" role="status" aria-hidden="true"></span>
             Loading...
-        </button> --}}
+        </button>  -->
         @include('layouts.header')
         @include('layouts.message')
         @yield('content')

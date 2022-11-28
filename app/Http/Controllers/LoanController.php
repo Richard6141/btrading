@@ -16,6 +16,8 @@ class LoanController extends Controller
         return view('loans.index', ['value' => $value]);
     }
 
+    
+
     public function loanRegister(Request $request)
     {
         
@@ -50,5 +52,12 @@ class LoanController extends Controller
                 $message = "An error occurs ! Please contact the administrator";
                 return redirect()->route('customer.index')->with('error', "$message");
             }
+    }
+    
+    public function updateform(string $id)
+    {
+        $loan = Loan::find($id)->firstOrFail();
+        // dd($loan);
+        return view('loans.editform', ['loan' =>$loan]);
     }
 }

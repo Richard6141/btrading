@@ -63,3 +63,4 @@ Route::post('/new_services', [ServiceController::class, 'newService'])->name('su
 Route::get('/documents/loan', [DocumentController::class, 'loadloan'])->name('documents.loan');
 Route::get('loan', [LoanController::class, 'index'])->name('loan-form');
 Route::post('loan-register', [LoanController::class, 'loanRegister'])->name('loan.register');
+Route::get('loans/{id}/edit', [LoanController::class, 'updateform'])->name('edit.loan');
