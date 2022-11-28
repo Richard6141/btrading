@@ -4,7 +4,13 @@
 
 <body>
     <div class="wrapper-main">
-        {{-- <button class="btn btn-primary" type="button" disabled>
+        <!-- <div class="d-flex justify-content-center">
+            <div class="spinner-border" role="status">
+            </div>
+          </div> -->
+          
+          
+       <!-- <button class="btn btn-primary" type="button" disabled>
             <span class="spinner-border spinner-border-sm" id="pageLoader" role="status" aria-hidden="true"></span>
             Loading...
         </button> --}}

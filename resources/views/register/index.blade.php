@@ -101,7 +101,7 @@
                     <div class="form-group row">
                         <label for="inputName" class="col-sm-4 col-form-label">Name</label>
                         <div class="col-sm-8">
-                            <input type="text" name="name" class="form-control" id="inputName" value="{{ old('name') }}" placeholder="Name">
+                            <input style="text-transform: uppercase;" type="text" name="name" class="form-control" id="inputName" value="{{ old('name') }}" placeholder="Name">
                             @error('name')
                             <div>
                                 {{ $message }}
@@ -112,7 +112,7 @@
                     <div class="form-group row mt-20">
                         <label for="inputFirstname" class="col-sm-4 col-form-label">Firstname</label>
                         <div class="col-sm-8">
-                            <input type="text" name="firstname" class="form-control" id="inputFirstname" value="{{ old('firstname') }}" placeholder="Firstname">
+                            <input style="text-transform: capitalize;" type="text" name="firstname" class="form-control" id="inputFirstname" value="{{ old('firstname') }}" placeholder="Firstname">
                             @error('firstname')
                             <div>
                                 {{ $message }}
@@ -123,7 +123,7 @@
                     <div class="form-group row">
                         <label for="inputEmail" class="col-sm-4 col-form-label">Email</label>
                         <div class="col-sm-8">
-                            <input type="email" name="email" class="form-control" id="inputEmail" value="{{ old('email') }}" placeholder="Email">
+                            <input inputmode="email" type="email" name="email" class="form-control" id="inputEmail" value="{{ old('email') }}" placeholder="Email">
                             @error('email')
                             <div>
                                 {{ $message }}
@@ -146,7 +146,7 @@
                                     @endforeach
                                 </select>
         
-                                <input type="telephone" name="phone" class="form-control" id="inputPhone" value="{{ old('phone') }}" placeholder="Phone">
+                                <input inputmode="tel" type="tel" name="phone" class="form-control" id="inputPhone" value="{{ old('phone') }}" placeholder="Phone">
                             </div>
                             @error('phone')
                             <div>
