@@ -64,3 +64,7 @@ Route::get('/documents/loan', [DocumentController::class, 'loadloan'])->name('do
 Route::get('loan', [LoanController::class, 'index'])->name('loan-form');
 Route::post('loan-register', [LoanController::class, 'loanRegister'])->name('loan.register');
 Route::get('loans/{id}/edit', [LoanController::class, 'updateform'])->name('edit.loan');
+Route::post('loans/{id}/update', [LoanController::class, 'updateloan'])->name('update.loan');
+Route::get('loans/{id}/delete', [LoanController::class, 'destroy'])->name('delete.loan');
+Route::get('loans/list', [LoanController::class, 'listloan'])->name('list.loan');
+Route::get('loans/{id}/status', [LoanController::class, 'switchLoanStatus'])->name('statuschange.loan');
