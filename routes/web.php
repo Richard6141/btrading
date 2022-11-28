@@ -1,15 +1,16 @@
 <?php
 
 use App\Models\TypeService;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoanController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\SavingController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\InvestmentController;
 use App\Http\Controllers\TypeServiceController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -66,6 +67,8 @@ Route::get('/services', [ServiceController::class, 'index'])->name('services');
 Route::get('/services/{id}', [ServiceController::class, 'editServiceView'])->name('services.view');
 Route::post('/services/{id}', [ServiceController::class, 'editService'])->name('editservices.submit');
 Route::get('/deleteservices/{id}', [ServiceController::class, 'deleteService'])->name('deleteService');
-Route::get('loan', [LoanController::class, 'index'])->name('loan-form');
+Route::get('loan', [LoanController::class, 'index'])->name('Loan.form');
 Route::post('loan-register', [LoanController::class, 'loanRegister'])->name('loan.register');
 Route::get('loans/{id}/edit', [LoanController::class, 'updateform'])->name('edit.loan');
+Route::get('add_investment', [InvestmentController::class, 'investmentForm'])->name('Investment.form');
+Route::get('add_saving', [SavingController::class, 'investmentForm'])->name('Saving.form');
