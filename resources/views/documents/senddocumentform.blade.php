@@ -22,9 +22,9 @@
                 <label for="user_id" class="col-sm-2 col-form-label">Client</label>
                 <div class="col-sm-10">
                     <select name="user_id" id="user_id" class="form-control">
-                        <option value="">Choose the service's type</option>
+                        <option value="">Choose the client</option>
                         @foreach($customers as $item)
-                        <option value="{{$item->id}}" selected>{{$item->name.' '. $item->firstname}}</option>
+                        <option value="{{$item->id}}">{{$item->name.' '. $item->firstname}}</option>
                         @endforeach
                     </select>
                     @error('type_service_id')
@@ -49,7 +49,7 @@
             <div class="form-group row mb-2">
                 <label for="inputmessage" class="col-sm-2 col-form-label">Message</label>
                 <div class="col-sm-10">
-                    <textarea name="description" value="{{ old('description') }}" id="mytextarea"
+                    <textarea name="description" value="{{ old('description') }}"
                         placeholder="Tapez votre message ici .."></textarea>
                     @error('description')
                     <div>

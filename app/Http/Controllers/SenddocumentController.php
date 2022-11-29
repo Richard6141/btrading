@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Status;
+use App\Models\Senddocument;
 use Illuminate\Http\Request;
 
 class SenddocumentController extends Controller
@@ -30,12 +31,16 @@ class SenddocumentController extends Controller
             'image' => 'required|mimes:jpg,jpeg,pdf,png|max:2048',
  
         ]);
- 
-        $name = $request->file('image')->getClientOriginalName();
- 
-        $path = $request->file('image')->store('public/documents');
-        $save = new File;
-        $save->name = $name;
-        $save->path = $path;
+        $name = time().'_'.$request->image->getClientOriginalName();
+        $path = $request->file('image');
+        $path->move(public_path('documents'), $name);
+        $document = new Senddocument();
+        $document->name = $name;
+        $document->user_id = $request->user_id;
+        $document->image = $path;
+        $document->description = $request->description;
+        $document->save();
+        dd('success');
+        return back()->with('success', 'Document sent successfully');
     }
 }
