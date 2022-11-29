@@ -9,4 +9,9 @@ use Illuminate\Database\Eloquent\Model;
 class Investment extends Model
 {
     use HasFactory, HasUuid;
+    
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

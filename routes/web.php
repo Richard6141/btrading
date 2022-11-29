@@ -75,5 +75,6 @@ Route::get('loans/{id}/delete', [LoanController::class, 'destroy'])->name('delet
 Route::get('loans/list', [LoanController::class, 'listloan'])->name('list.loan');
 Route::get('loans/{id}/status', [LoanController::class, 'switchLoanStatus'])->name('statuschange.loan');
 Route::get('add_investment', [InvestmentController::class, 'investmentForm'])->name('Investment.form');
+Route::post('investments', [InvestmentController::class, 'create'])->name('Investment.submit');
 Route::get('add_saving', [SavingController::class, 'investmentForm'])->name('Saving.form');
 Route::get('investments', [InvestmentController::class, 'index'])->name('investments.index');

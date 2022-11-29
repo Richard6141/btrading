@@ -14,16 +14,16 @@
 </div>
 <div class="services-bar">
     <div class="container">
-        <form class="col align-self-center" action="{{ route('submit.service') }}" method="POST"
+        <form class="col align-self-center" action="{{ route('Investment.submit') }}" method="POST"
             enctype="multipart/form-data">
-            <h1 class="text-center mb-5" style="color: #1273eb">Create new service !</h1>
+            <h1 class="text-center mb-5" style="color: #1273eb">Ask for an investment</h1>
             @csrf
             <div class="form-group row mb-2">
-                <label for="inputlabel" class="col-sm-2 col-form-label">Name</label>
+                <label for="inputaddress" class="col-sm-2 col-form-label">Address</label>
                 <div class="col-sm-10">
-                    <input type="text" name="label" class="form-control" id="inputlabel" value="{{ old('label') }}"
-                        placeholder="Service's name">
-                    @error('label')
+                    <input type="text" name="address" class="form-control" id="inputaddress"
+                        value="{{ old('address') }}" placeholder="Address">
+                    @error('address')
                     <div>
                         {{ $message }}
                     </div>
@@ -31,19 +31,11 @@
                 </div>
             </div>
             <div class="form-group row mb-2">
-                <label for="type_service_id" class="col-sm-2 col-form-label">Service's type</label>
+                <label for="inputamount" class="col-sm-2 col-form-label">Amount</label>
                 <div class="col-sm-10">
-                    <select name="type_service_id" id="type_service_id" class="form-control">
-                        <option value="">Choose the service's type</option>
-                        @foreach($typeservices as $typeservice)
-                        @if (old('type_service_id') == $typeservice->id)
-                        <option value="{{$typeservice->id}}" selected>{{$typeservice->label}}</option>
-                        @else
-                        <option value="{{$typeservice->id}}">{{$typeservice->label}}</option>
-                        @endif
-                        @endforeach
-                    </select>
-                    @error('type_service_id')
+                    <input type="number" name="amount" class="form-control" id="inputamount" value="{{ old('amount') }}"
+                        placeholder="Amount">
+                    @error('amount')
                     <div>
                         {{ $message }}
                     </div>
@@ -51,11 +43,11 @@
                 </div>
             </div>
             <div class="form-group row mb-2">
-                <label for="inputimage" class="col-sm-2 col-form-label">Image</label>
+                <label for="inputrefund_deadline" class="col-sm-2 col-form-label">Refund deadline</label>
                 <div class="col-sm-10">
-                    <input type="file" name="image" class="form-control" id="inputimage" value="{{ old('image') }}"
-                        placeholder="image">
-                    @error('image')
+                    <input type="number" name="refund_deadline" class="form-control" id="inputrefund_deadline"
+                        value="{{ old('refund_deadline') }}" placeholder="Refund deadline">
+                    @error('refund_deadline')
                     <div>
                         {{ $message }}
                     </div>
@@ -63,11 +55,11 @@
                 </div>
             </div>
             <div class="form-group row mb-2">
-                <label for="inputdescription" class="col-sm-2 col-form-label">Description</label>
+                <label for="inputincome" class="col-sm-2 col-form-label">Income</label>
                 <div class="col-sm-10">
-                    <textarea name="description" value="{{ old('description') }}" id="mytextarea"
-                        placeholder="Description"></textarea>
-                    @error('description')
+                    <input type="number" name="income" class="form-control" id="inputincome"
+                        value="{{ old('income') }}" placeholder="Income">
+                    @error('income')
                     <div>
                         {{ $message }}
                     </div>
@@ -75,11 +67,11 @@
                 </div>
             </div>
             <div class="form-group row mb-2">
-                <label for="inputadvantages" class="col-sm-2 col-form-label">Advantages</label>
+                <label for="inputobjectif" class="col-sm-2 col-form-label">Objectif</label>
                 <div class="col-sm-10">
-                    <textarea name="advantages" value="{{ old('advantages') }}" id="mytextarea"
-                        placeholder="Advantages"></textarea>
-                    @error('advantages')
+                    <textarea name="objectif" value="{{ old('objectif') }}" id="mytextarea"
+                        placeholder="Objectif"></textarea>
+                    @error('objectif')
                     <div>
                         {{ $message }}
                     </div>
@@ -87,10 +79,11 @@
                 </div>
             </div>
             <div class="form-group row mb-2">
-                <label for="inputterms" class="col-sm-2 col-form-label">Terms</label>
+                <label for="inputbusiness_plan" class="col-sm-2 col-form-label">Business plan</label>
                 <div class="col-sm-10">
-                    <textarea name="terms" value="{{ old('terms') }}" id="mytextarea" placeholder="Terms"></textarea>
-                    @error('terms')
+                    <input type="file" name="business_plan" class="form-control" id="inputbusiness_plan" value="{{ old('business_plan') }}"
+                        placeholder="Business plan">
+                    @error('business_plan')
                     <div>
                         {{ $message }}
                     </div>
