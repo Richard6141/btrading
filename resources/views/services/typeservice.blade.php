@@ -33,7 +33,7 @@
             <p class="card-text">{!!$service->advantages!!}</p>
             <p class="card-text">{!!$service->terms!!}</p>
           </div>
-          <a href="#" class="btn btn-primary">Ask for a {{$typeService}} <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="{{route($typeService. '.form')}}" class="btn btn-primary">Ask for a {{$typeService}} <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
       @endforeach

@@ -57,6 +57,7 @@ class LoanController extends Controller
     
     public function updateform(string $id)
     {
+        $id = htmlspecialchars(trim($id));
         $loan = Loan::find($id);
         $period = explode(" ", $loan->period);
         return view('loans.editform', [
@@ -83,6 +84,9 @@ class LoanController extends Controller
         try
         {
             $loanupdated = Loan::where('id', $id)->first();
+            if($loanupdated->statut == true){
+                return \back()->with('error', 'Impossible to update loan');
+            }
             $loanupdated->address = $request->address;
             $loanupdated->objectif = $request->objectif;
             $loanupdated->amount = $request->amount;
@@ -111,6 +115,7 @@ class LoanController extends Controller
             return back()->with('success', 'Loan deleted successfully');
         }
         dd('error');
+        return back()->with('error', 'An error occurred while deleting');
         
     }
 
