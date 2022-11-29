@@ -74,3 +74,4 @@ Route::post('loan-register', [LoanController::class, 'loanRegister'])->name('loa
 Route::get('loans/{id}/edit', [LoanController::class, 'updateform'])->name('edit.loan');
 Route::get('add_investment', [InvestmentController::class, 'investmentForm'])->name('Investment.form');
 Route::get('add_saving', [SavingController::class, 'investmentForm'])->name('Saving.form');
+Route::post('documents/submit', [SenddocumentController::class, 'senddocument'])->name('documents.submit');

@@ -18,8 +18,8 @@ return new class extends Migration
             $table->uuid('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('name')->nullable();
-            $table->string('messages')->nullable();
-            $table->string('file_path')->nullable();
+            $table->string('description')->nullable();
+            $table->string('image')->nullable();
             $table->boolean('status')->default(false);
             $table->timestamps();
         });

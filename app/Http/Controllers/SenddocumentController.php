@@ -23,7 +23,23 @@ class SenddocumentController extends Controller
         return view('documents.senddocumentform', ['customers' => $customers]);
     }
 
-    public function senddocument(DocumentRequest $request){
-
+    public function senddocument(Request $request){
+        $validatedData = $request->validate([
+            'user_id' => 'required|string',
+            'description' => 'required|string',
+            'image' => 'required|jpeg,png,pdf|max:2048',
+ 
+        ]);
+        dd($request);
+ 
+        $name = $request->file('file')->getClientOriginalName();
+ 
+        $path = $request->file('file')->store('public/files');
+ 
+ 
+        $save = new File;
+ 
+        $save->name = $name;
+        $save->path = $path;
     }
 }
