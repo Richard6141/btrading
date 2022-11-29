@@ -10,6 +10,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\SenddocumentController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ManageUserStatusController;
 use App\Http\Controllers\RegisterController as ControllersRegisterController;
@@ -52,3 +53,4 @@ Route::post('/user/{id}/avatar', [RegistrationController::class, 'uploadAvatar']
 Route::get('document-pret', [DocumentController::class, 'loanview'])->name('loanview');
 Route::get('/type_services/{id}', [ServiceController::class, 'serviceByType'])->name('services.type');
 Route::get('/documents/loan', [DocumentController::class, 'loadloan'])->name('documents.loan');
+Route::get('/documents/sendform', [SenddocumentController::class, 'index'])->name('documents.sendform');
