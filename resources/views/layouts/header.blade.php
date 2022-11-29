@@ -25,79 +25,49 @@
 </div>
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-light top-nav">
-    <div class="container">
+    <div class="container justify-content-between">
         <a class="navbar-brand" href="/">
             <img src="{{asset('images/logo.png')}}" alt="logo" />
         </a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="fas fa-bars"></span>
-        </button>
+
+        <div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fas fa-bars"></span>
+            </button>
+        </div>
+
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="/">Home
-                      <span class="sr-only">(current)</span>
+                        <span class="sr-only">(current)</span>
                     </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class=" {{ request()->is('about') ? 'active' : '' }} nav-link" href="{{route('about')}}">About Us</a>
-                  </li>  
-                  <li class="nav-item">
-                    <a class="{{ request()->is('services') ? 'active' : '' }} nav-link" href="{{route('services')}}">Our Services</a>
-                  </li>                          
-                  <li class="nav-item">
-                    <a class="{{ request()->is('contact') ? 'active' : '' }} nav-link" href="{{route('contact')}}">Contact Us</a>
-                  </li>
-                  @if( !Auth::user())
-                  <li class="nav-item">
-                    <a class="nav-link filled-button" href="{{route('login')}}"><i class="fa-duotone fa-user-secret"></i>Se connecter</a>
-                  </li>
-                  @else
-                  <li class="nav-item">
-                    <a class="nav-link filled-button" href="{{route('logout')}}"><i class="fa-duotone fa-user-secret"></i>Se déconnecter</a>
-                  </li>
-                  @endif
-                  <!-- <li class="nav-item">
-                    <a class="nav-link" href="one-page.html">One Page</a>
-                  </li> -->
-                {{-- <li class="nav-item">
-                    <a class="nav-link active" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="about.html">About</a>
+                    <a class=" {{ request()->is('about') ? 'active' : '' }} nav-link" href="{{route('about')}}">About
+                        Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="services.html">Services</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages <i class="fas fa-sort-down"></i></a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                        <a class="dropdown-item" href="faq.html">FAQ</a>
-                        <a class="dropdown-item" href="404.html">404</a>
-                        <a class="dropdown-item" href="pricing.html">Pricing Table</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Portfolio <i class="fas fa-sort-down"></i></a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                        <a class="dropdown-item" href="portfolio-3-col.html">3 Column Portfolio</a>
-                        <a class="dropdown-item" href="portfolio-4-col.html">4 Column Portfolio</a>
-                        <a class="dropdown-item" href="portfolio-item.html">Single Portfolio Item</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog <i class="fas fa-sort-down"></i></a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                        <a class="dropdown-item" href="blog.html">Blog</a>
-                        <a class="dropdown-item" href="blog-post.html">Blog Post</a>
-                    </div>
+                    <a class="{{ request()->is('services') ? 'active' : '' }} nav-link" href="{{route('services')}}">Our
+                        Services</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
-                </li> --}}
+                    <a class="{{ request()->is('contact') ? 'active' : '' }} nav-link"
+                        href="{{route('contact')}}">Contact Us</a>
+                </li>
+                @if( !Auth::user())
+                <li class="nav-item">
+                    <a class="nav-link filled-button" href="{{route('login')}}"><i
+                            class="fa-duotone fa-user-secret"></i>Se connecter</a>
+                </li>
+                @else
+                <li class="nav-item">
+                    <a class="nav-link filled-button" href="{{route('logout')}}"><i
+                            class="fa-duotone fa-user-secret"></i>Se déconnecter</a>
+                </li>
+                @endif
             </ul>
         </div>
     </div>
 </nav>
-
-

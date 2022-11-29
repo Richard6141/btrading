@@ -21,15 +21,19 @@
       <div class="col-lg-4 mb-4">
         <div class="card h-100">
           <div class="card-img">
+            @if($service->image == null)
             <img class="img-fluid" src="{{asset('images/services-img-01.jpg')}}" alt="" />
+            @else
+            <img class="img-fluid" src="{{ asset('image/' . $service->image) }}" alt="" style="max-width: 100% !important; max-height: 300px; !important" />
+            @endif
           </div>
-          <div class="card-body">
-            <h4 class="card-header"> {{$service->label}} </h4>
-            <p class="card-text">{{$service->description}}</p>
-            <p class="card-text">{{$service->advantages}}</p>
-            <p class="card-text">{{$service->terms}}</p>
+          <div class=" card-body">
+            <h4 class="card-header"> {!!$service->label!!} </h4>
+            <p class="card-text">{!!$service->description!!}</p>
+            <p class="card-text">{!!$service->advantages!!}</p>
+            <p class="card-text">{!!$service->terms!!}</p>
           </div>
-          <a href="#" class="btn btn-primary">Ask for a {{$typeService}} <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="{{route($typeService. '.form')}}" class="btn btn-primary">Ask for a {{$typeService}} <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
       @endforeach
