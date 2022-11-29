@@ -59,12 +59,12 @@ class InvestmentController extends Controller
             $investment->address = $request->address;
             $investment->objectif = $request->objectif;
             $investment->amount = $request->amount;
-            $investment->group = 'fdghjk';
+            $investment->group = $request->group;
             $investment->refund_deadline = $request->refund_deadline;
             $investment->income = $request->income;
             $investment->business_plan = $filename;
             $investment->save();
-            // dd($filename);
+            dd($filename);
             dd('success');
             return redirect()->back()->with('success', 'Investment asked successfully');
         } catch (\Throwable $th) {
