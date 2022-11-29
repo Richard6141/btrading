@@ -27,18 +27,14 @@ class SenddocumentController extends Controller
         $validatedData = $request->validate([
             'user_id' => 'required|string',
             'description' => 'required|string',
-            'image' => 'required|jpeg,png,pdf|max:2048',
+            'image' => 'required|mimes:jpg,jpeg,pdf,png|max:2048',
  
         ]);
-        dd($request);
  
-        $name = $request->file('file')->getClientOriginalName();
+        $name = $request->file('image')->getClientOriginalName();
  
-        $path = $request->file('file')->store('public/files');
- 
- 
+        $path = $request->file('image')->store('public/documents');
         $save = new File;
- 
         $save->name = $name;
         $save->path = $path;
     }
