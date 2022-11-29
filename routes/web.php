@@ -70,6 +70,10 @@ Route::get('/deleteservices/{id}', [ServiceController::class, 'deleteService'])-
 Route::get('loan', [LoanController::class, 'index'])->name('Loan.form');
 Route::post('loan-register', [LoanController::class, 'loanRegister'])->name('loan.register');
 Route::get('loans/{id}/edit', [LoanController::class, 'updateform'])->name('edit.loan');
+Route::post('loans/{id}/update', [LoanController::class, 'updateloan'])->name('update.loan');
+Route::get('loans/{id}/delete', [LoanController::class, 'destroy'])->name('delete.loan');
+Route::get('loans/list', [LoanController::class, 'listloan'])->name('list.loan');
+Route::get('loans/{id}/status', [LoanController::class, 'switchLoanStatus'])->name('statuschange.loan');
 Route::get('add_investment', [InvestmentController::class, 'investmentForm'])->name('Investment.form');
 Route::get('add_saving', [SavingController::class, 'investmentForm'])->name('Saving.form');
 Route::get('investments', [InvestmentController::class, 'index'])->name('investments.index');
