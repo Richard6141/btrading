@@ -13,6 +13,7 @@ use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\InvestmentController;
 use App\Http\Controllers\TypeServiceController;
 use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\SenddocumentController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ManageUserStatusController;
 use App\Http\Controllers\RegisterController as ControllersRegisterController;
@@ -63,6 +64,7 @@ Route::get('/new_services', [ServiceController::class, 'newServiceView'])->name(
 Route::post('/new_type_services', [TypeServiceController::class, 'newTypeService'])->name('submit.typeservice');
 Route::post('/new_services', [ServiceController::class, 'newService'])->name('submit.service');
 Route::get('/documents/loan', [DocumentController::class, 'loadloan'])->name('documents.loan');
+Route::get('/documents/sendform', [SenddocumentController::class, 'index'])->name('documents.sendform');
 Route::get('/services', [ServiceController::class, 'index'])->name('services');
 Route::get('/services/{id}', [ServiceController::class, 'editServiceView'])->name('services.view');
 Route::post('/services/{id}', [ServiceController::class, 'editService'])->name('editservices.submit');
@@ -78,3 +80,4 @@ Route::get('add_investment', [InvestmentController::class, 'investmentForm'])->n
 Route::post('investments', [InvestmentController::class, 'create'])->name('Investment.submit');
 Route::get('add_saving', [SavingController::class, 'investmentForm'])->name('Saving.form');
 Route::get('investments', [InvestmentController::class, 'index'])->name('investments.index');
+Route::post('documents/submit', [SenddocumentController::class, 'senddocument'])->name('documents.submit');
