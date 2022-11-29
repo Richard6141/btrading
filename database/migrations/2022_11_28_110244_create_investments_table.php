@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('refund_deadline');
             $table->string('income');
             $table->string('business_plan');
-            $table->boolean('statut')->default(true);
+            $table->boolean('statut')->default(false);
             $table->timestamps();
         });
     }
