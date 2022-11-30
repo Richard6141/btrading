@@ -43,6 +43,25 @@
                 </div>
             </div>
             <div class="form-group row mb-2">
+                <label for="" class="col-sm-2 col-form-label">Période</label>
+                <div class="col-sm-10">
+                    <div class="d-flex">
+                        <select name="period1" id="select_country" class="form-control" style="width: 80px;" required>
+                            <option value="">Periodicity</option>
+                            <option value="year">Year</option>
+                            <option value="month">Month</option>
+                        </select>
+                        <input type="number" name="number" class="form-control" id="inputnumber"
+                            value="{{ old('number') }}" placeholder="Number">
+                    </div>
+                    @error('number')
+                    <div>
+                        {{ $message }}
+                    </div>
+                    @enderror
+                </div>
+            </div>
+            {{-- <div class="form-group row mb-2">
                 <label for="inputrefund_deadline" class="col-sm-2 col-form-label">Refund deadline</label>
                 <div class="col-sm-10">
                     <input type="number" name="refund_deadline" class="form-control" id="inputrefund_deadline"
@@ -53,7 +72,7 @@
                     </div>
                     @enderror
                 </div>
-            </div>
+            </div> --}}
             <div class="form-group row mb-2">
                 <label for="inputincome" class="col-sm-2 col-form-label">Income</label>
                 <div class="col-sm-10">
@@ -88,8 +107,8 @@
             <div class="form-group row mb-2">
                 <label for="inputobjectif" class="col-sm-2 col-form-label">Objectif</label>
                 <div class="col-sm-10">
-                    <textarea name="objectif" value="{{ old('objectif') }}"
-                        placeholder="Objectif" class="form-control"></textarea>
+                    <textarea name="objectif" value="{{ old('objectif') }}" placeholder="Objectif"
+                        class="form-control">{{ old('objectif') }}</textarea>
                     @error('objectif')
                     <div>
                         {{ $message }}

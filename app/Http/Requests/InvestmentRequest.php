@@ -26,11 +26,12 @@ class InvestmentRequest extends FormRequest
         return [
             'address' => 'required',
             'objectif' => 'required',
-            'amount' => 'required',
+            'amount' => 'required|integer|min:10000',
             'group' => 'required',
-            'refund_deadline' => 'required',
+            'period1' => 'required',
+            'number' => 'required',
             'income' => 'required',
-            'business_plan' => 'mimes:pdf'
+            'business_plan' => 'mimes:csv,txt,xlx,xls,pdf|max:2048'
         ];
     }
 }

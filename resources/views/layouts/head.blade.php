@@ -16,14 +16,14 @@
 	<link href="{{asset('css/style.css')}}" rel="stylesheet">
 
 	<script src="https://kit.fontawesome.com/9525013788.js" crossorigin="anonymous"></script> 
-	<script src="https://cdn.tiny.cloud/1/9d8obghi4sokqeq4jp6ulagj1cr0thhv9uzvoark11y2zbon/tinymce/5/tinymce.min.js"
-		referrerpolicy="origin"></script>
+	{{-- <script src="https://cdn.tiny.cloud/1/9d8obghi4sokqeq4jp6ulagj1cr0thhv9uzvoark11y2zbon/tinymce/5/tinymce.min.js"
+		referrerpolicy="origin"></script> --}}
 
-	<script>
-		tinymce.init({
-			  selector: 'textarea',
-			  plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
-			  toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
-			});
-	</script>
+		{{-- <script>
+			tinymce.init({
+				selector: 'textarea',
+				plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+				toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+				});
+		</script> --}}
 </head>

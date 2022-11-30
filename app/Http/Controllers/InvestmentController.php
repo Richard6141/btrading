@@ -41,28 +41,41 @@ class InvestmentController extends Controller
         return htmlspecialchars(trim($id));
     }
 
+    public function checkPeriod(string $period, string $number): bool
+    {
+        if (($period == 'year' && $number <= 20) || ($period == 'month' && $number <= 240)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function create(InvestmentRequest $request)
     {
-        $file = $request->file('business_plan');
-        $filename = now() . $file->getClientOriginalName();
-        $file->move(public_path('documents'), $filename);
-        try {
-            $investment = new Investment();
-            $investment->user_id = Auth::user()->id;
-            $investment->address = $request->address;
-            $investment->objectif = $request->objectif;
-            $investment->amount = $request->amount;
-            $investment->group = $request->group;
-            $investment->refund_deadline = $request->refund_deadline;
-            $investment->income = $request->income;
-            $investment->business_plan = $filename;
-            $investment->save();
-            dd($filename);
-            dd('success');
-            return redirect()->back()->with('success', 'Investment asked successfully');
-        } catch (\Throwable $th) {
-            return redirect()->back()->with('error', $th);
+        if ($this->checkPeriod($request->period1, $request->number)) {
+            $period = htmlspecialchars(trim($request->number)) . ' ' . htmlspecialchars(trim($request->period1));
+            // dd($period);
+            $file = $request->file('business_plan');
+            $filename = now() . $file->getClientOriginalName();
+            $file->move(public_path('documents'), $filename);
+            try {
+                $investment = new Investment();
+                $investment->user_id = Auth::user()->id;
+                $investment->address = $request->address;
+                $investment->objectif = $request->objectif;
+                $investment->amount = $request->amount;
+                $investment->group = $request->group;
+                $investment->refund_deadline = $period;
+                $investment->income = $request->income;
+                $investment->business_plan = $filename;
+                $investment->save();
+                return redirect()->back()->with('success', 'Investment asked successfully');
+            } catch (\Throwable $th) {
+                return redirect()->back()->with('error', $th);
+            }
         }
+        dd('Reimbursement period too long');
+        return redirect()->back()->with('error', 'Reimbursement period too long');
     }
 
     public function retrieveInvestment(string $id)
