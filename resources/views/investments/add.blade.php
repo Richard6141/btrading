@@ -57,9 +57,28 @@
             <div class="form-group row mb-2">
                 <label for="inputincome" class="col-sm-2 col-form-label">Income</label>
                 <div class="col-sm-10">
-                    <input type="number" name="income" class="form-control" id="inputincome"
-                        value="{{ old('income') }}" placeholder="Income">
+                    <input type="number" name="income" class="form-control" id="inputincome" value="{{ old('income') }}"
+                        placeholder="Income">
                     @error('income')
+                    <div>
+                        {{ $message }}
+                    </div>
+                    @enderror
+                </div>
+            </div>
+            <div class="form-group row mb-2">
+                <label for="inputincome" class="col-sm-2 col-form-label">Income</label>
+                <div class="col-sm-10">
+                    <select name="group" id="group" class="form-control">
+                        @foreach ($groups as $group)
+                        @if ($group->label == old('group'))
+                        <option value="{{$group->label}}" selected>{{$group->label}}</option>
+                        @else
+                        <option value="{{$group->label}}">{{$group->label}}</option>
+                        @endif
+                        @endforeach
+                    </select>
+                    @error('group')
                     <div>
                         {{ $message }}
                     </div>
@@ -69,8 +88,8 @@
             <div class="form-group row mb-2">
                 <label for="inputobjectif" class="col-sm-2 col-form-label">Objectif</label>
                 <div class="col-sm-10">
-                    <textarea name="objectif" value="{{ old('objectif') }}" id="mytextarea"
-                        placeholder="Objectif"></textarea>
+                    <textarea name="objectif" value="{{ old('objectif') }}"
+                        placeholder="Objectif" class="form-control"></textarea>
                     @error('objectif')
                     <div>
                         {{ $message }}
@@ -81,8 +100,8 @@
             <div class="form-group row mb-2">
                 <label for="inputbusiness_plan" class="col-sm-2 col-form-label">Business plan</label>
                 <div class="col-sm-10">
-                    <input type="file" name="business_plan" class="form-control" id="inputbusiness_plan" value="{{ old('business_plan') }}"
-                        placeholder="Business plan">
+                    <input type="file" name="business_plan" class="form-control" id="inputbusiness_plan"
+                        value="{{ old('business_plan') }}" placeholder="Business plan">
                     @error('business_plan')
                     <div>
                         {{ $message }}

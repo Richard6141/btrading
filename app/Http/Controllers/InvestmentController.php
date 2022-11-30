@@ -6,6 +6,7 @@ use App\Models\Investment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\InvestmentRequest;
+use App\Models\Groups;
 
 class InvestmentController extends Controller
 {
@@ -19,7 +20,10 @@ class InvestmentController extends Controller
 
     public function investmentForm()
     {
-        return view('investments.add');
+        $groups = Groups::all();
+        return view('investments.add', [
+            'groups' => $groups
+        ]);
     }
 
     public function isInvestmentExist(string $id): bool
@@ -37,19 +41,8 @@ class InvestmentController extends Controller
         return htmlspecialchars(trim($id));
     }
 
-    public function create(Request $request)
+    public function create(InvestmentRequest $request)
     {
-        // dd('$filename');
-
-        $request->validate([
-            'address' => 'required',
-            'objectif' => 'required',
-            'amount' => 'required',
-            // 'group' => 'required',
-            'refund_deadline' => 'required',
-            'income' => 'required',
-            'business_plan' => 'mimes:pdf'
-        ]);
         $file = $request->file('business_plan');
         $filename = now() . $file->getClientOriginalName();
         $file->move(public_path('documents'), $filename);
