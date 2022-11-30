@@ -46,16 +46,28 @@
                 <!--footer_ul2_amrc ends here-->
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 ">
+                <script>
+                    @if (Session()->has('error'))
+                        <span class="error">{{ Session->get('error') }}</span>
+                    @endif
+                    @if (Session()->has('success'))
+                        <span class="success">{{ Session->get('success') }}</span>
+                    @endif
+                </script>
+   
                 <div class="news-box">
                     <h5 class="headin5_amrc col_white_amrc pt2">Newsletter</h5>
-                    <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
-                    <form action="#">
+                    <p>Faites-vous informer de nos der...</p>
+                    <form action="{{route('newsletters.register')}}">
                         <div class="input-group">
-                            <input class="form-control" placeholder="Search for..." type="text">
+                            <input name= "email" inputmode = "email" class="form-control @error('email') isinvalid @enderror" placeholder="johnson@xyz.com" type="email">
                             <span class="input-group-btn">
-                              <button class="btn btn-secondary" type="button">Go!</button>
+                              <button class="btn btn-secondary" type="submit">Go!</button>
                             </span>
                         </div>
+                        @if($errors->has('email'))
+                            <p>Le champ « Email » a une erreur</p>
+                        @endif
                     </form>
                 </div>
             </div>

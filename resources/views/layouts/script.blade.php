@@ -20,3 +20,26 @@
 //         $('#button').hide();
 // })
 </script>
+
+<!-- <script>
+    @if (session()->has('success'))
+        swal({
+            title: '{{ session('success') }}',
+            icon: 'success'
+        })
+    @endif
+
+    @if (session()->has('error'))
+        swal({
+            title: '{{ session('error') }}',
+            icon: 'error'
+        })
+    @endif
+
+    @if (session()->has('warning'))
+        swal({
+            title: '{{ session('warning') }}',
+            icon: 'warning'
+        })
+    @endif
+</script> -->

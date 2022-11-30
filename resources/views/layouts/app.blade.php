@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+
+@include('layouts.flash-message')
 @include('layouts.head')
 
 <body>

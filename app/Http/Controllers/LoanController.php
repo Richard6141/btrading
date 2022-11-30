@@ -46,12 +46,10 @@ class LoanController extends Controller
                 'income'=>htmlspecialchars(trim($request->income)),
             ];
             Loan::create($data);
-                dd('success');
-                return redirect()->route('login')->with('success', "Account create successfully");
+                return back()->with('success', "Account create successfully");
             } catch (\Throwable $th) {
-                dd('error');
                 $message = "An error occurs ! Please contact the administrator";
-                return redirect()->route('customer.index')->with('error', "$message");
+                return back()->with('error', "$message");
             }
     }
     

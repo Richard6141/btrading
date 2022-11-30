@@ -100,6 +100,16 @@
                         </div>
                         </div>
                     </div>
+                    <div class="form-group{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
+                <div class="col-md-6">
+                    {!! RecaptchaV3::field('register') !!}
+                    @if ($errors->has('g-recaptcha-response'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                        </span>
+                    @endif
+                </div>
+            </div>
                     <div class="d-flex justify-content-end">
                         <button type="submit" class="btn" style="background-color: #1273eb!important; color:white">Soumettre</button>
                     </div>

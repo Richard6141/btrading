@@ -13,6 +13,7 @@
 	<link href="css/all.css" rel="stylesheet">
 	<!-- Custom styles for this template -->
 	<link href="css/style.css" rel="stylesheet">
+	{!! RecaptchaV3::initJs() !!}
 </head>
 <body>
 <div class="wrapper-main">
@@ -93,6 +94,7 @@
         </div>
     </nav>
 	<header class="slider-main">
+		@include('layouts.flash-message')
     <div class="col-12 d-flex justify-content-center" style="min-height:auto; background-image: url('images/slider-01.jpg')">
         <div class="card" style="width: auto; margin-top:10%; margin-bottom:10%; opacity:.9; height: 85%">
             <div class="card-body row align-items-center" >
@@ -137,6 +139,16 @@
                     </div>
                         </div>
                     </div>
+					<div class="form-group{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
+                            <div class="col-md-6">
+                                {!! RecaptchaV3::field('register') !!}
+                                @if ($errors->has('g-recaptcha-response'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
                     
                     <div class="d-flex justify-content-end">
                         <button type="submit" class="btn" style="background-color: #1273eb!important; color:white">Login</button>

@@ -15,6 +15,7 @@ use App\Http\Controllers\TypeServiceController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\SenddocumentController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\MailnewsletterController;
 use App\Http\Controllers\ManageUserStatusController;
 use App\Http\Controllers\RegisterController as ControllersRegisterController;
 
@@ -79,3 +80,4 @@ Route::get('loans/{id}/status', [LoanController::class, 'switchLoanStatus'])->na
 Route::get('add_investment', [InvestmentController::class, 'investmentForm'])->name('Investment.form');
 Route::get('add_saving', [SavingController::class, 'investmentForm'])->name('Saving.form');
 Route::post('documents/submit', [SenddocumentController::class, 'senddocument'])->name('documents.submit');
+Route::get('newsletters', [MailnewsletterController::class, 'registerMail'])->name('newsletters.register');

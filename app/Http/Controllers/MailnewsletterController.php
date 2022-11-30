@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Mailnewsletter;
 
 class MailnewsletterController extends Controller
 {
-    public function registerMail()
+    public function registerMail(Request $request)
     {
         $request->validate([
             'email' => 'required|email|unique:mailnewsletters',
